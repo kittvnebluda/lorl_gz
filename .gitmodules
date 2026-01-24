@@ -1,6 +1,3 @@
-[submodule "src/src"]
-	path = src/src
-	url = https://github.com/khaledgabr77/unitree_go2_ros2
 [submodule "src/unitree_go2_ros2"]
 	path = src/unitree_go2_ros2
-	url = https://github.com/khaledgabr77/unitree_go2_ros2
+	url = git@github.com:kittvnebluda/unitree_go2_ros2.git
