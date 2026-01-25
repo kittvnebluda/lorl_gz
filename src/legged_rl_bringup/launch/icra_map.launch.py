@@ -9,9 +9,13 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    qr_test_gazebo_pkg_path = get_package_share_directory("qr_test_gazebo")
-    qr_test_description_pkg_path = get_package_share_directory("qr_test_description")
-    unitree_go2_sim_pkg_path = get_package_share_directory("unitree_go2_sim")
+    ros_gz_sim_pkg_path = get_package_share_directory("ros_gz_sim")
+    legged_rl_description_pkg_path = get_package_share_directory(
+        "legged_rl_description"
+    )
+    legged_rl_gazebo_pkg_path = get_package_share_directory("legged_rl_gazebo")
+
+    gz_launch_path = os.path.join(ros_gz_sim_pkg_path, "launch", "gz_sim.launch.py")
 
     return LaunchDescription(
         [
@@ -19,19 +23,12 @@ def generate_launch_description():
                 "map", default_value="flat", choices=["flat", "sloped"]
             ),
             IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(
-                    os.path.join(
-                        unitree_go2_sim_pkg_path, "launch", "unitree_go2_launch.py"
-                    )
-                ),
+                PythonLaunchDescriptionSource(gz_launch_path),
                 launch_arguments={
-                    "world": os.path.join(
-                        qr_test_gazebo_pkg_path, "worlds", "empty.sdf"
-                    ),
-                    "world_init_x": "6",
-                    "world_init_y": "-3",
-                    "world_init_z": "1",
-                    "world_init_heading": "3.14",
+                    "gz_args": [
+                        os.path.join(legged_rl_gazebo_pkg_path, "worlds", "empty.sdf")
+                    ],
+                    "on_exit_shutdown": "True",
                 }.items(),
             ),
             Node(
@@ -39,12 +36,12 @@ def generate_launch_description():
                 executable="create",
                 parameters=[
                     {
-                        "name": "competition_map",
+                        "name": "map",
                         "file": PathJoinSubstitution(
                             [
-                                qr_test_description_pkg_path,
+                                legged_rl_description_pkg_path,
                                 "urdf",
-                                ["map_", LaunchConfiguration("map"), ".urdf"],
+                                ["icra_map_", LaunchConfiguration("map"), ".urdf"],
                             ]
                         ),
                         "use_sim_time": True,

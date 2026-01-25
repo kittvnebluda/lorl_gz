@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 # Following directive defines the project name.
-project(qr_test_gazebo)
+project(legged_rl_gazebo)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -9,7 +9,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # The 'set' directive defines a variable (e.g. 'GZ_PLUGIN_VER').
 # Such variables can be used lateron in the CMakeLists.txt file.
 find_package(ament_cmake REQUIRED)
-find_package(qr_test_description REQUIRED)
+find_package(legged_rl_description REQUIRED)
 
 find_package(gz-cmake3 REQUIRED)
 find_package(gz-plugin2 REQUIRED COMPONENTS register)

@@ -52,7 +52,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1032.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1032.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -63,7 +63,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1032.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1032.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -94,7 +94,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1032.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1032.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -105,7 +105,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1032.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1032.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -136,7 +136,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1032.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1032.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -147,7 +147,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1032.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1032.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -178,7 +178,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1032.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1032.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -189,7 +189,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1032.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1032.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -220,7 +220,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -231,7 +231,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -262,7 +262,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -273,7 +273,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -304,7 +304,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -315,7 +315,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -346,7 +346,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -357,7 +357,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -388,7 +388,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -399,7 +399,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -430,7 +430,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -441,7 +441,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -472,7 +472,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -483,7 +483,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -514,7 +514,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -525,7 +525,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -556,7 +556,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -567,7 +567,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -598,7 +598,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -609,7 +609,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -640,7 +640,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -651,7 +651,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -682,7 +682,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -693,7 +693,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -724,7 +724,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -735,7 +735,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -766,7 +766,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -777,7 +777,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -808,7 +808,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -819,7 +819,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -850,7 +850,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -861,7 +861,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -892,7 +892,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -903,7 +903,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -934,7 +934,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -945,7 +945,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -976,7 +976,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -987,7 +987,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1018,7 +1018,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1029,7 +1029,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1060,7 +1060,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1071,7 +1071,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1102,7 +1102,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1113,7 +1113,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1144,7 +1144,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1155,7 +1155,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1186,7 +1186,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1197,7 +1197,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1228,7 +1228,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1239,7 +1239,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1270,7 +1270,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1281,7 +1281,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1312,7 +1312,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1323,7 +1323,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1354,7 +1354,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1365,7 +1365,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1396,7 +1396,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1407,7 +1407,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1438,7 +1438,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1449,7 +1449,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1480,7 +1480,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1491,7 +1491,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1522,7 +1522,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1533,7 +1533,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1564,7 +1564,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1575,7 +1575,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1606,7 +1606,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1617,7 +1617,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1648,7 +1648,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1659,7 +1659,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x150.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x150.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1689,7 +1689,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1700,7 +1700,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1730,7 +1730,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1741,7 +1741,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1771,7 +1771,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1782,7 +1782,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1812,7 +1812,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1823,7 +1823,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1853,7 +1853,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1864,7 +1864,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1894,7 +1894,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1905,7 +1905,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1935,7 +1935,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1946,7 +1946,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -1976,7 +1976,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -1987,7 +1987,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2017,7 +2017,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2028,7 +2028,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2058,7 +2058,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2069,7 +2069,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2100,7 +2100,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2111,7 +2111,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2142,7 +2142,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2153,7 +2153,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2183,7 +2183,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2194,7 +2194,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2224,7 +2224,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2235,7 +2235,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2265,7 +2265,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2276,7 +2276,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2306,7 +2306,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2317,7 +2317,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_18x600x2400.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_18x600x2400.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2347,7 +2347,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2358,7 +2358,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2388,7 +2388,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2399,7 +2399,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2429,7 +2429,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2440,7 +2440,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2470,7 +2470,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2481,7 +2481,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2511,7 +2511,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2522,7 +2522,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2552,7 +2552,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2563,7 +2563,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2593,7 +2593,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2604,7 +2604,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2634,7 +2634,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2645,7 +2645,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2675,7 +2675,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2686,7 +2686,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2716,7 +2716,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2727,7 +2727,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2757,7 +2757,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2768,7 +2768,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2798,7 +2798,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2809,7 +2809,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2839,7 +2839,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2850,7 +2850,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2880,7 +2880,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2891,7 +2891,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2921,7 +2921,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2932,7 +2932,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -2962,7 +2962,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -2973,7 +2973,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3003,7 +3003,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3014,7 +3014,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3044,7 +3044,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3055,7 +3055,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3085,7 +3085,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3096,7 +3096,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3126,7 +3126,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3137,7 +3137,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3167,7 +3167,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3178,7 +3178,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3208,7 +3208,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3219,7 +3219,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3249,7 +3249,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3260,7 +3260,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3291,7 +3291,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3302,7 +3302,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3333,7 +3333,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3344,7 +3344,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3375,7 +3375,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3386,7 +3386,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3417,7 +3417,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3428,7 +3428,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3458,7 +3458,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3469,7 +3469,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3499,7 +3499,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3510,7 +3510,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3540,7 +3540,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3551,7 +3551,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3581,7 +3581,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3592,7 +3592,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3622,7 +3622,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3633,7 +3633,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3663,7 +3663,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3674,7 +3674,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3704,7 +3704,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3715,7 +3715,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3745,7 +3745,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3756,7 +3756,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3786,7 +3786,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3797,7 +3797,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3827,7 +3827,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3838,7 +3838,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3868,7 +3868,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3879,7 +3879,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/board_50x50x300.obj" />
+                    filename="package://legged_rl_description/meshes/visual/board_50x50x300.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3910,7 +3910,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/crate_board.obj" />
+                    filename="package://legged_rl_description/meshes/visual/crate_board.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3921,7 +3921,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/crate_board.obj" />
+                    filename="package://legged_rl_description/meshes/visual/crate_board.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3952,7 +3952,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/crate_board.obj" />
+                    filename="package://legged_rl_description/meshes/visual/crate_board.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -3963,7 +3963,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/crate_board.obj" />
+                    filename="package://legged_rl_description/meshes/visual/crate_board.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -3994,7 +3994,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/crate_board.obj" />
+                    filename="package://legged_rl_description/meshes/visual/crate_board.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4005,7 +4005,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/crate_board.obj" />
+                    filename="package://legged_rl_description/meshes/visual/crate_board.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4036,7 +4036,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/crate_board.obj" />
+                    filename="package://legged_rl_description/meshes/visual/crate_board.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4047,7 +4047,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/crate_board.obj" />
+                    filename="package://legged_rl_description/meshes/visual/crate_board.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4078,7 +4078,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/k_rail_diagonal.obj" />
+                    filename="package://legged_rl_description/meshes/visual/k_rail_diagonal.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4089,7 +4089,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/k_rail_diagonal.obj" />
+                    filename="package://legged_rl_description/meshes/visual/k_rail_diagonal.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4119,7 +4119,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/k_rail_diagonal.obj" />
+                    filename="package://legged_rl_description/meshes/visual/k_rail_diagonal.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4130,7 +4130,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/k_rail_diagonal.obj" />
+                    filename="package://legged_rl_description/meshes/visual/k_rail_diagonal.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4161,7 +4161,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/k_rail_diagonal.obj" />
+                    filename="package://legged_rl_description/meshes/visual/k_rail_diagonal.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4172,7 +4172,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/k_rail_diagonal.obj" />
+                    filename="package://legged_rl_description/meshes/visual/k_rail_diagonal.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4203,7 +4203,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/k_rail_diagonal.obj" />
+                    filename="package://legged_rl_description/meshes/visual/k_rail_diagonal.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4214,7 +4214,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/k_rail_diagonal.obj" />
+                    filename="package://legged_rl_description/meshes/visual/k_rail_diagonal.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4244,7 +4244,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4255,7 +4255,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4285,7 +4285,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4296,7 +4296,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4326,7 +4326,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4337,7 +4337,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4367,7 +4367,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4378,7 +4378,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4408,7 +4408,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4419,7 +4419,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4449,7 +4449,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4460,7 +4460,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4490,7 +4490,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4501,7 +4501,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4531,7 +4531,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4542,7 +4542,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4572,7 +4572,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4583,7 +4583,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4613,7 +4613,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4624,7 +4624,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4655,7 +4655,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4666,7 +4666,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4697,7 +4697,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4708,7 +4708,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4738,7 +4738,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4749,7 +4749,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4779,7 +4779,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4790,7 +4790,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4820,7 +4820,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4831,7 +4831,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4861,7 +4861,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4872,7 +4872,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/lane_floor.obj" />
+                    filename="package://legged_rl_description/meshes/visual/lane_floor.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4902,7 +4902,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4913,7 +4913,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4943,7 +4943,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4954,7 +4954,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -4984,7 +4984,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -4995,7 +4995,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5025,7 +5025,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5036,7 +5036,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5066,7 +5066,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5077,7 +5077,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5107,7 +5107,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5118,7 +5118,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5148,7 +5148,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5159,7 +5159,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5189,7 +5189,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5200,7 +5200,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5230,7 +5230,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5241,7 +5241,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5271,7 +5271,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5282,7 +5282,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pallet_step_with_pipe.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pallet_step_with_pipe.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5312,7 +5312,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5323,7 +5323,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5353,7 +5353,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5364,7 +5364,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5394,7 +5394,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5405,7 +5405,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5435,7 +5435,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5446,7 +5446,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5477,7 +5477,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5488,7 +5488,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5519,7 +5519,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5530,7 +5530,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5561,7 +5561,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5572,7 +5572,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5603,7 +5603,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5614,7 +5614,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/pvc_pipe_100x1200.obj" />
+                    filename="package://legged_rl_description/meshes/visual/pvc_pipe_100x1200.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5644,7 +5644,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5654,7 +5654,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5684,7 +5684,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5694,7 +5694,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5724,7 +5724,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5734,7 +5734,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5764,7 +5764,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5774,7 +5774,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5804,7 +5804,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5814,7 +5814,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5844,7 +5844,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5854,7 +5854,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5884,7 +5884,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5894,7 +5894,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5924,7 +5924,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5934,7 +5934,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -5964,7 +5964,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -5974,7 +5974,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6004,7 +6004,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6014,7 +6014,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6044,7 +6044,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6054,7 +6054,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6084,7 +6084,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6094,7 +6094,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6124,7 +6124,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6134,7 +6134,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6164,7 +6164,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6174,7 +6174,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6204,7 +6204,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6214,7 +6214,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6244,7 +6244,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6254,7 +6254,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6284,7 +6284,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6294,7 +6294,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6324,7 +6324,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6334,7 +6334,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6364,7 +6364,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6374,7 +6374,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6404,7 +6404,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6414,7 +6414,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6444,7 +6444,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6454,7 +6454,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6484,7 +6484,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6494,7 +6494,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6524,7 +6524,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6534,7 +6534,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6564,7 +6564,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6574,7 +6574,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6604,7 +6604,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6614,7 +6614,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6644,7 +6644,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6654,7 +6654,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6684,7 +6684,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6694,7 +6694,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6724,7 +6724,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6734,7 +6734,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6764,7 +6764,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6774,7 +6774,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6804,7 +6804,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6814,7 +6814,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6844,7 +6844,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6854,7 +6854,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6884,7 +6884,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6894,7 +6894,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://qr_test_description/meshes/visual/ramp.obj" />
+                <mesh filename="package://legged_rl_description/meshes/visual/ramp.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6924,7 +6924,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/stepover_1.obj" />
+                    filename="package://legged_rl_description/meshes/visual/stepover_1.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6935,7 +6935,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/stepover_1.obj" />
+                    filename="package://legged_rl_description/meshes/visual/stepover_1.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -6965,7 +6965,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/stepover_1.obj" />
+                    filename="package://legged_rl_description/meshes/visual/stepover_1.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -6976,7 +6976,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/stepover_1.obj" />
+                    filename="package://legged_rl_description/meshes/visual/stepover_1.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -7006,7 +7006,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/stepover_2.obj" />
+                    filename="package://legged_rl_description/meshes/visual/stepover_2.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -7017,7 +7017,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/stepover_2.obj" />
+                    filename="package://legged_rl_description/meshes/visual/stepover_2.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
@@ -7047,7 +7047,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/stepover_2.obj" />
+                    filename="package://legged_rl_description/meshes/visual/stepover_2.obj" />
             </geometry>
             <material name="">
                 <color rgba="0.92 0.93 0.90 1" />
@@ -7058,7 +7058,7 @@
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh
-                    filename="package://qr_test_description/meshes/visual/stepover_2.obj" />
+                    filename="package://legged_rl_description/meshes/visual/stepover_2.obj" />
             </geometry>
             <material name="">
                 <color rgba="1 0 0 1" />
