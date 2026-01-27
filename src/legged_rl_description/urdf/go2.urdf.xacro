@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<robot name="go2" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:include filename="$(find unitree_go2_description)/urdf/unitree_go2_robot.xacro" />
+    <gazebo>
+        <plugin name="legged_rl_gazebo::ResetSystem" filename="ResetSystem" />
+    </gazebo>
+</robot>

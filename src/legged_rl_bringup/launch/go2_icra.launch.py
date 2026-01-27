@@ -34,6 +34,9 @@ def generate_launch_description():
                     "world_init_y": "-3",
                     "world_init_z": "1",
                     "world_init_heading": "3.14",
+                    "unitree_go2_description_path": os.path.join(
+                        legged_rl_description_pkg_path, "urdf", "go2.urdf.xacro"
+                    ),
                 }.items(),
             ),
             Node(

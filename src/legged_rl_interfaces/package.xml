@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-    <name>legged_rl_gazebo</name>
+    <name>legged_rl_interfaces</name>
     <version>0.0.0</version>
-    <description>Gazebo-specific implementations for the legged_obstacle_rl project</description>
+    <description>Interfaces for legged_obstacle_rl project</description>
     <maintainer email="sizgrisha@gmail.com">Grigorii</maintainer>
-    <license>Apache 2.0</license>
+    <license>Apache-2.0</license>
 
-    <depend>rclcpp</depend>
     <depend>geometry_msgs</depend>
-    <depend>legged_rl_interfaces</depend>
 
     <buildtool_depend>ament_cmake</buildtool_depend>
+    <buildtool_depend>rosidl_default_generators</buildtool_depend>
 
-    <test_depend>ament_lint_auto</test_depend>
+    <exec_depend>rosidl_default_runtime</exec_depend>
+
+    <member_of_group>rosidl_interface_packages</member_of_group>
 
     <export>
         <build_type>ament_cmake</build_type>
     </export>
 </package>
-
