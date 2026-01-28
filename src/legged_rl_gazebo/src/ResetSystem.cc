@@ -9,6 +9,7 @@
 #include <gz/sim/components/Joint.hh>
 #include <gz/sim/components/JointPositionReset.hh>
 #include <gz/sim/components/JointVelocityReset.hh>
+#include <inttypes.h>
 #include <memory>
 #include <mutex>
 #include <rclcpp/create_service.hpp>
@@ -46,6 +47,7 @@ ResetSystem::Configure(const gz::sim::Entity& _entity,
         gzerr << "ResetSystem must be attached to a model\n";
         return;
     }
+    joint_num_ = model_.JointCount(_ecm);
 
     if (!rclcpp::ok())
         rclcpp::init(0, nullptr);
@@ -111,6 +113,18 @@ ResetSystem::onResetRobot(
 {
     std::lock_guard<std::mutex> lock(mutex_);
 
+    if (req->joint_positions.size() != joint_num_) {
+        RCLCPP_ERROR(
+          node_->get_logger(),
+          "Reset aborted: joint_positions size mismatch. Expected %" PRIu64
+          ", got %zu.",
+          joint_num_,
+          req->joint_positions.size());
+        res->success = false;
+        return;
+    }
+    desired_joint_positions_ = req->joint_positions;
+
     auto pose = gz::math::Vector3d(
       req->pose.position.x, req->pose.position.y, req->pose.position.z);
 
@@ -120,8 +134,6 @@ ResetSystem::onResetRobot(
                                       req->pose.orientation.z);
 
     desired_pose_.Set(pose, quat);
-
-    desired_joint_positions_ = req->joint_positions;
 
     reset_requested_ = true;
     res->success = true;

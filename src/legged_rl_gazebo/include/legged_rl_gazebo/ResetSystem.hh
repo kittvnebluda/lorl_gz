@@ -3,6 +3,7 @@
 
 #include "geometry_msgs/msg/pose.hpp"
 #include "legged_rl_interfaces/srv/reset_robot.hpp"
+#include <cstdint>
 #include <gz/math/Pose3.hh>
 #include <gz/sim/Entity.hh>
 #include <gz/sim/Model.hh>
@@ -43,6 +44,7 @@ class ResetSystem
 
     gz::sim::Model model_;
     std::vector<gz::sim::Entity> joint_entities_;
+    uint64_t joint_num_;
 
     void onResetRobot(
       const std::shared_ptr<legged_rl_interfaces::srv::ResetRobot::Request> req,

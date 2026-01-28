@@ -19,21 +19,20 @@ set(GZ_SIM_VER ${gz-sim8_VERSION_MAJOR})
 
 add_library(ResetSystem
   SHARED
-  src/ResetSystem.cc
+    src/ResetSystem.cc
 )
 
-target_include_directories(
-  ResetSystem PRIVATE include
+target_include_directories(ResetSystem
+  PRIVATE
+    include
 )
 
-ament_target_dependencies(
-  ResetSystem
+ament_target_dependencies(ResetSystem
   rclcpp
   legged_rl_interfaces
 )
 
-target_link_libraries(
-  ResetSystem
+target_link_libraries(ResetSystem
   gz-sim${GZ_SIM_VER}::gz-sim${GZ_SIM_VER}
 )
 
