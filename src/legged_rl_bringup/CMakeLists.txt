@@ -10,8 +10,8 @@ find_package(legged_rl_gazebo REQUIRED)
 
 # Install project launch files
 install(
-  DIRECTORY launch/
-  DESTINATION share/${PROJECT_NAME}/launch
+  DIRECTORY launch rviz config
+  DESTINATION share/${PROJECT_NAME}/
 )
 
 if(BUILD_TESTING)
