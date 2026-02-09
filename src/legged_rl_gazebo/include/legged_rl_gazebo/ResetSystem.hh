@@ -2,13 +2,13 @@
 #define LEGGED_RL_GAZEBO__RESET_SYSTEM_HH_
 
 #include "legged_rl_interfaces/srv/reset_robot.hpp"
-#include <cstdint>
 #include <gz/math/Pose3.hh>
 #include <gz/sim/Entity.hh>
 #include <gz/sim/Model.hh>
 #include <gz/sim/System.hh>
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp/service.hpp>
+#include <string>
 #include <vector>
 
 namespace legged_rl_gazebo {
@@ -38,12 +38,12 @@ class ResetSystem
     std::mutex mutex_;
 
     bool reset_requested_{ false };
-    gz::math::Pose3d desired_pose_;
-    std::vector<double> desired_joint_positions_;
+    gz::math::Pose3d req_pose_;
+    std::map<std::string, double> req_joint_map_;
 
     gz::sim::Model model_;
-    std::vector<gz::sim::Entity> joint_entities_;
-    uint64_t joint_num_;
+    std::map<std::string, gz::sim::Entity> joint_map_;
+    size_t joint_num_;
 
     void onResetRobot(
       const std::shared_ptr<legged_rl_interfaces::srv::ResetRobot::Request> req,

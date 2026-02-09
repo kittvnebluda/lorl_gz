@@ -72,8 +72,6 @@ ResetSystem::Configure(const gz::sim::Entity& _entity,
         if (joint_type == sdf::JointType::CONTINUOUS ||
             joint_type == sdf::JointType::REVOLUTE) {
 
-            joint_entities_.push_back(joint_entity);
-
             auto name_comp =
               _ecm.Component<gz::sim::components::Name>(joint_entity);
             if (name_comp) {
@@ -81,11 +79,13 @@ ResetSystem::Configure(const gz::sim::Entity& _entity,
                             "Registered joint: %s (type: %d)",
                             name_comp->Data().c_str(),
                             static_cast<int>(joint_type));
+                joint_map_[name_comp->Data()] = joint_entity;
             } else {
-                RCLCPP_INFO(
+                RCLCPP_ERROR(
                   node_->get_logger(),
                   "Registered joint without name component (type: %d)",
                   static_cast<int>(joint_type));
+                return;
             }
         } else {
             RCLCPP_DEBUG(node_->get_logger(),
@@ -95,7 +95,7 @@ ResetSystem::Configure(const gz::sim::Entity& _entity,
         }
     }
 
-    joint_num_ = joint_entities_.size();
+    joint_num_ = joint_map_.size();
     RCLCPP_INFO(
       node_->get_logger(), "Found %zu actuated joints for reset.", joint_num_);
 
@@ -121,29 +121,33 @@ ResetSystem::PreUpdate(const gz::sim::UpdateInfo& _info,
             return;
         RCLCPP_DEBUG(node_->get_logger(), "Reset requested");
 
-        model_.SetWorldPoseCmd(_ecm, desired_pose_);
+        model_.SetWorldPoseCmd(_ecm, req_pose_);
 
-        for (size_t i = 0; i < model_.JointCount(_ecm); i++) {
-            gz::sim::Entity joint = joint_entities_.at(i);
-            double target_pos = desired_joint_positions_.at(i);
+        for (const auto it : req_joint_map_) {
+            std::string joint_name = it.first;
+            double joint_pos = it.second;
+            auto joint_entity = joint_map_.at(joint_name);
 
             auto pos_reset =
-              _ecm.Component<gz::sim::components::JointPositionReset>(joint);
+              _ecm.Component<gz::sim::components::JointPositionReset>(
+                joint_entity);
             if (pos_reset) {
-                pos_reset->Data() = { target_pos };
+                pos_reset->Data() = { joint_pos };
             } else {
                 _ecm.CreateComponent(
-                  joint,
-                  gz::sim::components::JointPositionReset({ target_pos }));
+                  joint_entity,
+                  gz::sim::components::JointPositionReset({ joint_pos }));
             }
 
             auto vel_reset =
-              _ecm.Component<gz::sim::components::JointVelocityReset>(joint);
+              _ecm.Component<gz::sim::components::JointVelocityReset>(
+                joint_entity);
             if (vel_reset) {
                 vel_reset->Data() = { 0.0 };
             } else {
                 _ecm.CreateComponent(
-                  joint, gz::sim::components::JointVelocityReset({ 0.0 }));
+                  joint_entity,
+                  gz::sim::components::JointVelocityReset({ 0.0 }));
             }
         }
         reset_requested_ = false;
@@ -157,17 +161,18 @@ ResetSystem::onResetRobot(
 {
     std::lock_guard<std::mutex> lock(mutex_);
 
-    if (req->joint_positions.size() != joint_num_) {
-        RCLCPP_ERROR(
-          node_->get_logger(),
-          "Reset aborted: joint_positions size mismatch. Expected %" PRIu64
-          ", got %zu.",
-          joint_num_,
-          req->joint_positions.size());
+    if (req->joint_positions.size() != req->joint_names.size()) {
+        RCLCPP_ERROR(node_->get_logger(),
+                     "Reset aborted: joint_positions size does not equal to "
+                     "joint_names size. %zu vs %zu.",
+                     req->joint_positions.size(),
+                     req->joint_names.size());
         res->success = false;
         return;
     }
-    desired_joint_positions_ = req->joint_positions;
+
+    for (size_t i = 0; i < req->joint_names.size(); i++)
+        req_joint_map_[req->joint_names.at(i)] = req->joint_positions.at(i);
 
     auto pose = gz::math::Vector3d(
       req->pose.position.x, req->pose.position.y, req->pose.position.z);
@@ -177,7 +182,7 @@ ResetSystem::onResetRobot(
                                       req->pose.orientation.y,
                                       req->pose.orientation.z);
 
-    desired_pose_.Set(pose, quat);
+    req_pose_.Set(pose, quat);
 
     reset_requested_ = true;
     res->success = true;
