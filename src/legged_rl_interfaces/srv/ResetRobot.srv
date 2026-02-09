@@ -1,4 +1,8 @@
+# This service resets robot's model the reset system attached to.
+# All arrays should have the same size.
+
 geometry_msgs/Pose pose
+string[] joint_names
 float64[] joint_positions
 ---
 bool success
