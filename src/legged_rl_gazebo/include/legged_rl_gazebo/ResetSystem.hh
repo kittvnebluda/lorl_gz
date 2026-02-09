@@ -1,7 +1,6 @@
 #ifndef LEGGED_RL_GAZEBO__RESET_SYSTEM_HH_
 #define LEGGED_RL_GAZEBO__RESET_SYSTEM_HH_
 
-#include "geometry_msgs/msg/pose.hpp"
 #include "legged_rl_interfaces/srv/reset_robot.hpp"
 #include <cstdint>
 #include <gz/math/Pose3.hh>

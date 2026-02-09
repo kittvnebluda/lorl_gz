@@ -8,7 +8,9 @@
 #include <gz/sim/Model.hh>
 #include <gz/sim/components/Joint.hh>
 #include <gz/sim/components/JointPositionReset.hh>
+#include <gz/sim/components/JointType.hh>
 #include <gz/sim/components/JointVelocityReset.hh>
+#include <gz/sim/components/Name.hh>
 #include <inttypes.h>
 #include <memory>
 #include <mutex>
@@ -19,6 +21,7 @@
 #include <rclcpp/qos.hpp>
 #include <rclcpp/utilities.hpp>
 #include <rmw/qos_profiles.h>
+#include <sdf/Joint.hh>
 
 GZ_ADD_PLUGIN(legged_rl_gazebo::ResetSystem,
               gz::sim::System,
@@ -27,13 +30,18 @@ GZ_ADD_PLUGIN(legged_rl_gazebo::ResetSystem,
 
 namespace legged_rl_gazebo {
 
-ResetSystem::ResetSystem() {};
+ResetSystem::ResetSystem()
+{
+    if (!rclcpp::ok())
+        rclcpp::init(0, nullptr);
+
+    node_ = rclcpp::Node::make_shared("reset_robot_server");
+};
 
 ResetSystem::~ResetSystem()
 {
-    if (node_) {
+    if (node_)
         rclcpp::shutdown();
-    }
 }
 
 void
@@ -44,15 +52,53 @@ ResetSystem::Configure(const gz::sim::Entity& _entity,
 {
     model_ = gz::sim::Model(_entity);
     if (!model_.Valid(_ecm)) {
-        gzerr << "ResetSystem must be attached to a model\n";
+        RCLCPP_ERROR(node_->get_logger(),
+                     "ResetSystem must be attached to a model");
         return;
     }
-    joint_num_ = model_.JointCount(_ecm);
 
-    if (!rclcpp::ok())
-        rclcpp::init(0, nullptr);
+    for (const auto& joint_entity : model_.Joints(_ecm)) {
+        auto type_comp =
+          _ecm.Component<gz::sim::components::JointType>(joint_entity);
+        if (!type_comp) {
+            RCLCPP_WARN(node_->get_logger(),
+                        "Joint %lu missing JointType component - skipping.",
+                        joint_entity);
+            continue;
+        }
 
-    node_ = rclcpp::Node::make_shared("reset_robot_server");
+        sdf::JointType joint_type = type_comp->Data();
+
+        if (joint_type == sdf::JointType::CONTINUOUS ||
+            joint_type == sdf::JointType::REVOLUTE) {
+
+            joint_entities_.push_back(joint_entity);
+
+            auto name_comp =
+              _ecm.Component<gz::sim::components::Name>(joint_entity);
+            if (name_comp) {
+                RCLCPP_INFO(node_->get_logger(),
+                            "Registered joint: %s (type: %d)",
+                            name_comp->Data().c_str(),
+                            static_cast<int>(joint_type));
+            } else {
+                RCLCPP_INFO(
+                  node_->get_logger(),
+                  "Registered joint without name component (type: %d)",
+                  static_cast<int>(joint_type));
+            }
+        } else {
+            RCLCPP_DEBUG(node_->get_logger(),
+                         "Skipping not supported joint %lu (type: %d)",
+                         joint_entity,
+                         static_cast<int>(joint_type));
+        }
+    }
+
+    joint_num_ = joint_entities_.size();
+    RCLCPP_INFO(
+      node_->get_logger(), "Found %zu actuated joints for reset.", joint_num_);
+
     service_ = node_->create_service<legged_rl_interfaces::srv::ResetRobot>(
       "reset_robot",
       std::bind(&ResetSystem::onResetRobot,
@@ -60,8 +106,6 @@ ResetSystem::Configure(const gz::sim::Entity& _entity,
                 std::placeholders::_1,
                 std::placeholders::_2),
       rclcpp::QoS(rclcpp::KeepLast(1)));
-
-    joint_entities_ = model_.Joints(_ecm);
 
     RCLCPP_INFO(node_->get_logger(), "Reset robot service created");
 }
