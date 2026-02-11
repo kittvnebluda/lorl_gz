@@ -9,7 +9,6 @@
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp/service.hpp>
 #include <string>
-#include <vector>
 
 namespace legged_rl_gazebo {
 class ResetSystem
@@ -19,7 +18,7 @@ class ResetSystem
 {
   public:
     ResetSystem();
-    ~ResetSystem() override;
+    ~ResetSystem();
 
   public:
     void Configure(const gz::sim::Entity& _entity,

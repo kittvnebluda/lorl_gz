@@ -37,8 +37,28 @@ target_link_libraries(ResetSystem
 )
 
 
+add_library(PosePublisherSystem
+  SHARED
+    src/PosePublisherSystem.cc
+)
+
+target_include_directories(PosePublisherSystem
+  PRIVATE
+    include
+)
+
+ament_target_dependencies(PosePublisherSystem
+  rclcpp
+  geometry_msgs
+)
+
+target_link_libraries(PosePublisherSystem
+  gz-sim${GZ_SIM_VER}::gz-sim${GZ_SIM_VER}
+)
+
+
 install(
-  TARGETS ResetSystem
+  TARGETS ResetSystem PosePublisherSystem
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -54,10 +74,6 @@ if(BUILD_TESTING)
 endif()
 
 
-# Following hooks are used to ensure that the correct environment variables
-# will be set by exectuting 'source install/setup.bash' after compilation.
-# When using this template for your project, change the filenames of the
-# files in the 'hooks' folder, to correspond to your project name.
 ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.dsv.in")
 ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.sh.in")
 
