@@ -5,3 +5,4 @@ log
 .clangd
 .envrc
 __pycache__
+venvs
