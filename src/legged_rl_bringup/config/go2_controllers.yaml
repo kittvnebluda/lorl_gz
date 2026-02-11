@@ -6,10 +6,10 @@ controller_manager:
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-    effort_controller:
-      type: effort_controllers/JointGroupEffortController
+    position_controller:
+      type: position_controllers/JointGroupPositionController
 
-effort_controller:
+position_controller:
   ros__parameters:
     joints:
       - lf_hip_joint
@@ -24,3 +24,16 @@ effort_controller:
       - rh_hip_joint
       - rh_upper_leg_joint
       - rh_lower_leg_joint
+    gains:
+      lf_hip_joint: { p: 100.0, d: 5.0 }
+      lf_upper_leg_joint: { p: 100.0, d: 5.0 }
+      lf_lower_leg_joint: { p: 100.0, d: 5.0 }
+      rf_hip_joint: { p: 100.0, d: 5.0 }
+      rf_upper_leg_joint: { p: 100.0, d: 5.0 }
+      rf_lower_leg_joint: { p: 100.0, d: 5.0 }
+      lh_hip_joint: { p: 100.0, d: 5.0 }
+      lh_upper_leg_joint: { p: 100.0, d: 5.0 }
+      lh_lower_leg_joint: { p: 100.0, d: 5.0 }
+      rh_hip_joint: { p: 100.0, d: 5.0 }
+      rh_upper_leg_joint: { p: 100.0, d: 5.0 }
+      rh_lower_leg_joint: { p: 100.0, d: 5.0 }

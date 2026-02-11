@@ -67,6 +67,7 @@ def generate_launch_description():
             robot_controllers,
             " DEBUG:=",
             LaunchConfiguration("debug"),
+            " command_interface:=position",
         ]
     )
     ros_gz_bridge_cfg = PathJoinSubstitution(
@@ -95,7 +96,12 @@ def generate_launch_description():
         package="ros_gz_sim",
         executable="create",
         output="screen",
-        arguments=["-topic", "/robot_description"],
+        arguments=[
+            "-topic",
+            "/robot_description",
+            "-z",
+            "0.4",
+        ],
     )
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
@@ -112,7 +118,7 @@ def generate_launch_description():
         package="controller_manager",
         executable="spawner",
         arguments=[
-            "effort_controller",
+            "position_controller",
             "--param-file",
             robot_controllers,
         ],
