@@ -6,3 +6,5 @@ log
 .envrc
 __pycache__
 venvs
+*tensorboard
+*.zip
