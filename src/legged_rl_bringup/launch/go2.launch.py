@@ -4,6 +4,7 @@ from launch.actions import (
     IncludeLaunchDescription,
     RegisterEventHandler,
 )
+from launch.conditions import IfCondition
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import (
@@ -11,6 +12,7 @@ from launch.substitutions import (
     LaunchConfiguration,
     PathJoinSubstitution,
     PathSubstitution,
+    PythonExpression,
 )
 from launch_ros.actions import Node, SetParameter
 from launch_ros.substitutions import FindPackageShare
@@ -19,45 +21,53 @@ from ros_gz_bridge.actions import RosGzBridge
 
 def generate_launch_description():
     # Package shared directories
-    legged_rl_gazebo_pkg_share = FindPackageShare("legged_rl_gazebo")
-    legged_rl_bringup_pkg_share = FindPackageShare("legged_rl_bringup")
-    legged_rl_description_pkg_share = FindPackageShare("legged_rl_description")
-    ros_gz_sim_pkg_share = FindPackageShare("ros_gz_sim")
-    unitree_go2_sim_pkg_share = FindPackageShare("unitree_go2_sim")
+    legged_rl_gazebo_pkg_path = FindPackageShare("legged_rl_gazebo")
+    legged_rl_bringup_pkg_path = FindPackageShare("legged_rl_bringup")
+    legged_rl_description_pkg_path = FindPackageShare("legged_rl_description")
+    ros_gz_sim_pkg_path = FindPackageShare("ros_gz_sim")
+    unitree_go2_sim_pkg_path = FindPackageShare("unitree_go2_sim")
 
     # Set default arguments
     default_robot_description = PathJoinSubstitution(
-        [legged_rl_description_pkg_share, "urdf", "go2.urdf.xacro"]
+        [legged_rl_description_pkg_path, "urdf", "go2.urdf.xacro"]
     )
     default_gazebo_world = PathJoinSubstitution(
-        [legged_rl_gazebo_pkg_share, "worlds", "empty.sdf"]
+        [legged_rl_gazebo_pkg_path, "worlds", "empty.sdf"]
     )
     default_rviz_cfg = PathJoinSubstitution(
-        [legged_rl_bringup_pkg_share, "rviz", "go2.rviz"]
+        [legged_rl_bringup_pkg_path, "rviz", "go2.rviz"]
     )
 
     # Declare arguments
-    declared_arguments = []
-    declared_arguments.append(
-        DeclareLaunchArgument("world", default_value=default_gazebo_world)
-    )
-    declared_arguments.append(
-        DeclareLaunchArgument("debug", default_value="false", choices=["true", "false"])
-    )
+    declared_arguments = [
+        DeclareLaunchArgument("world", default_value=default_gazebo_world),
+        DeclareLaunchArgument(
+            "debug",
+            default_value="false",
+            choices=["true", "false"],
+            description="If true, the robot will be fixed relative to the map frame",
+        ),
+        DeclareLaunchArgument(
+            "gui",
+            default_value="true",
+            choices=["true", "false"],
+            description="If false, RViz will not be launched, Gazebo will run headless",
+        ),
+    ]
 
     # Initialize arguments
     use_sim_time = True
     joints_config = PathJoinSubstitution(
-        [unitree_go2_sim_pkg_share, "config", "joints", "joints.yaml"]
+        [unitree_go2_sim_pkg_path, "config", "joints", "joints.yaml"]
     )
     gait_config = PathJoinSubstitution(
-        [unitree_go2_sim_pkg_share, "config", "gait", "gait.yaml"]
+        [unitree_go2_sim_pkg_path, "config", "gait", "gait.yaml"]
     )
     links_config = PathJoinSubstitution(
-        [unitree_go2_sim_pkg_share, "config", "links", "links.yaml"]
+        [unitree_go2_sim_pkg_path, "config", "links", "links.yaml"]
     )
     robot_controllers = PathJoinSubstitution(
-        [legged_rl_bringup_pkg_share, "config", "go2_controllers.yaml"]
+        [legged_rl_bringup_pkg_path, "config", "go2_controllers.yaml"]
     )
     robot_urdf = Command(
         [
@@ -71,7 +81,7 @@ def generate_launch_description():
         ]
     )
     ros_gz_bridge_cfg = PathJoinSubstitution(
-        [legged_rl_bringup_pkg_share, "config", "ros_gz_bridge.yaml"]
+        [legged_rl_bringup_pkg_path, "config", "ros_gz_bridge.yaml"]
     )
 
     # Set common parameters
@@ -86,10 +96,17 @@ def generate_launch_description():
     )
     gazebo_sim_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            PathJoinSubstitution([ros_gz_sim_pkg_share, "launch", "gz_sim.launch.py"])
+            PathJoinSubstitution([ros_gz_sim_pkg_path, "launch", "gz_sim.launch.py"])
         ),
         launch_arguments={
-            "gz_args": [PathSubstitution(LaunchConfiguration("world")), " -r"]
+            "gz_args": [
+                PathSubstitution(LaunchConfiguration("world")),
+                " -r",
+                PythonExpression(
+                    [" '-s' if '", LaunchConfiguration("gui"), "' == 'false' else ''"]
+                ),
+            ],
+            "on_exit_shutdown": "True",
         }.items(),
     )
     gazebo_spawn_entity_node = Node(
@@ -215,6 +232,7 @@ def generate_launch_description():
         executable="rviz2",
         name="rviz2",
         arguments=["-d", default_rviz_cfg],
+        condition=IfCondition(LaunchConfiguration("gui")),
     )
 
     nodes = [
