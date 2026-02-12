@@ -1,0 +1,193 @@
+from copy import deepcopy
+import gymnasium as gym
+import numpy as np
+from rclpy.duration import Duration
+import rclpy.executors
+from geometry_msgs.msg import Pose
+from gymnasium import spaces
+from numpy import deg2rad, exp, float32, pi
+from rclpy.time import Time
+from tf_transformations import quaternion_from_euler
+
+from legged_rl_env.constants import (
+    jpos_high,
+    jpos_low,
+    jvel_max,
+    stable_standing_joint_positions,
+)
+from legged_rl_env.go2_node import Go2Node
+
+
+def normalize(x, low, high):
+    return 2.0 * (x - low) / (high - low) - 1.0
+
+
+def denormalize(x_norm, low, high):
+    return low + (x_norm + 1.0) * 0.5 * (high - low)
+
+
+class Go2Env(gym.Env):
+    metadata = {}
+    reset_srv_timeout = 1.0
+    q_homing = deepcopy(stable_standing_joint_positions)
+    q_homing_normalized = normalize(q_homing, jpos_low, jpos_high).astype(float32)
+
+    def __init__(self, wait_for_services=True, render_mode=None) -> None:
+        self.render_mode = render_mode
+
+        self.observation_space = spaces.Dict(
+            {
+                "linear_vel": spaces.Box(
+                    low=np.array([-3.5, -2.0, -1.0], dtype=float32),
+                    high=np.array([3.7, 2.0, 1.0], dtype=float32),
+                    shape=(3,),
+                    dtype=float32,
+                ),
+                "angular_vel": spaces.Box(
+                    low=np.array([-4.0, -4.0, -3.0], dtype=float32),
+                    high=np.array([4.0, 4.0, 3.0], dtype=float32),
+                    shape=(3,),
+                    dtype=float32,
+                ),
+                "orientation": spaces.Box(low=-pi, high=pi, shape=(2,), dtype=float32),
+                "joint_positions": spaces.Box(
+                    low=jpos_low, high=jpos_high, shape=(12,), dtype=float32
+                ),
+                "joint_velocities": spaces.Box(
+                    low=-jvel_max, high=jvel_max, shape=(12,), dtype=float32
+                ),
+                "ref_z": spaces.Box(low=0.0, high=0.5, shape=(1,), dtype=float32),
+                "prev_actions": spaces.Box(low=-1, high=1, shape=(12,), dtype=float32),
+            }
+        )
+        self.action_space = spaces.Box(low=-1, high=1, shape=(12,), dtype=float32)
+
+        self.roll_th = deg2rad(45)
+        self.pitch_th = deg2rad(45)
+        self.z_min_th = 0.1
+        self.max_steps = 10000
+
+        self.action_magnitude = 0
+
+        self._prev_action = self.q_homing_normalized
+        self._curr_step = 0
+
+        self.node = Go2Node(wait_for_services=wait_for_services)
+        self.executor = rclpy.executors.SingleThreadedExecutor()
+        self.executor.add_node(self.node)
+
+    def _get_obs(self):
+        self.node.update_pose()
+        return {
+            "linear_vel": self.node.base_linear_vel,
+            "angular_vel": self.node.base_angular_vel,
+            "orientation": self.node.base_orientation[:2],
+            "joint_positions": self.node.joint_positions,
+            "joint_velocities": self.node.joint_velocities,
+            "ref_z": np.array([0.4], dtype=np.float32),
+            "prev_actions": self._prev_action,
+        }
+
+    def _get_info(self):
+        return {
+            "position": self.node.real_position,
+            "orientation": self.node.real_orientation,
+        }
+
+    def _is_terminated(self, obs, info, curr_step):
+        ori = info["orientation"]
+        roll = ori[0]
+        pitch = ori[1]
+        z = info["position"][2]
+
+        if (
+            abs(roll) > self.roll_th
+            or abs(pitch) > self.pitch_th
+            or curr_step >= self.max_steps
+            or z <= self.z_min_th
+        ):
+            return True  # dead
+        else:
+            return False  # alive
+
+    def reset(self, *, seed=None, options=None):
+        super().reset(seed=seed)
+
+        self.node.publish_position_commands(self.q_homing)
+
+        x, y, z, w = quaternion_from_euler(0, 0, self.np_random.uniform(-pi, pi))
+
+        pose = Pose()
+        pose.position.z = 0.24
+        pose.orientation.w = w
+        pose.orientation.x = x
+        pose.orientation.y = y
+        pose.orientation.z = z
+
+        future = self.node.send_reset_request(pose, stable_standing_joint_positions)
+        self.executor.spin_until_future_complete(
+            future, timeout_sec=self.reset_srv_timeout
+        )
+
+        if not future.done():
+            self.node.get_logger().error("Reset timeout")
+            raise TimeoutError("Reset service execution timed out")
+
+        if not future.result():
+            self.node.get_logger().error("Reset failed")
+            raise RuntimeError("Reset service returned failure")
+
+        while not self.node.tf_buffer.can_transform(
+            self.node.target_frame,
+            self.node.source_frame,
+            Time(),
+            Duration(seconds=0.01),
+        ):
+            self.node.get_logger().info(
+                f"Waiting for tf {self.node.source_frame} -> {self.node.target_frame} to become available",
+                throttle_duration_sec=5,
+            )
+            self.executor.spin_once(0.01)
+
+        obs = self._get_obs()
+        info = self._get_info()
+
+        self._prev_action = self.q_homing_normalized
+        self._curr_step = 0
+
+        return obs, info
+
+    def step(self, action):
+        action_to_publish = np.clip(
+            self.q_homing + denormalize(action, jpos_low, jpos_high),
+            jpos_low,
+            jpos_high,
+        )
+        self.node.publish_position_commands(action_to_publish)
+
+        self.executor.spin_once(timeout_sec=0.01)
+
+        obs = self._get_obs()
+        info = self._get_info()
+        terminated = self._is_terminated(obs, info, self._curr_step)
+
+        reward = (
+            exp(-np.linalg.norm(obs["linear_vel"][:2]))
+            + exp(-(obs["angular_vel"][2] ** 2))
+            + 2.2 * (1 - np.exp(-obs["linear_vel"][0]))
+            - 0.2 * ((info["position"][2] - obs["ref_z"][0]) ** 2)
+            - 0.2 * np.linalg.norm(action - obs["prev_actions"])
+            - (obs["linear_vel"][2] ** 2)
+        )
+
+        self.action_magnitude = np.linalg.norm(action - obs["prev_actions"])
+
+        self._prev_action = action
+        self._curr_step += 1
+
+        return obs, reward, terminated, False, info
+
+    def close(self):
+        self.executor.shutdown()
+        self.node.destroy_node()
+        rclpy.shutdown()
