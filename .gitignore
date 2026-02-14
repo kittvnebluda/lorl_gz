@@ -8,3 +8,4 @@ __pycache__
 venvs
 *tensorboard
 *.zip
+compile_commands.json
