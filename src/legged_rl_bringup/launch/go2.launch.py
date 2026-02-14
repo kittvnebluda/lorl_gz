@@ -1,6 +1,7 @@
 from launch import LaunchDescription
 from launch.actions import (
     DeclareLaunchArgument,
+    ExecuteProcess,
     IncludeLaunchDescription,
     RegisterEventHandler,
 )
@@ -115,7 +116,7 @@ def generate_launch_description():
     gazebo_spawn_entity_node = Node(
         package="ros_gz_sim",
         executable="create",
-        output="screen",
+        output="log",
         arguments=[
             "-topic",
             "/robot_description",
@@ -126,6 +127,7 @@ def generate_launch_description():
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
+        output="log",
         arguments=["joint_state_broadcaster"],
     )
     delay_joint_state_broadcaster_spawner = RegisterEventHandler(
@@ -137,6 +139,7 @@ def generate_launch_description():
     robot_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
+        output="log",
         arguments=[
             "position_controller",
             "--param-file",
@@ -149,18 +152,39 @@ def generate_launch_description():
             on_exit=[robot_controller_spawner],
         )
     )
+    initial_joint_positions_publisher = ExecuteProcess(
+        cmd=[
+            "ros2",
+            "topic",
+            "pub",
+            "--once",
+            "/position_controller/commands",
+            "std_msgs/msg/Float64MultiArray",
+            "data: [0.0, 1.009553554927045, -2.0602379537721163, "
+            "0.0, 1.009553554927045, -2.0602379537721163, "
+            "0.0, 1.009553554927045, -2.0602379537721163, "
+            "0.0, 1.009553554927045, -2.0602379537721163]",
+        ],
+        output="log",
+    )
+    delay_initial_joint_positions_publisher = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=robot_controller_spawner,
+            on_exit=[initial_joint_positions_publisher],
+        )
+    )
     gazebo_bridge = RosGzBridge(
         bridge_name="ros_gazebo_bridge", config_file=ros_gz_bridge_cfg
     )
     foot_contacts_node = Node(
         package="legged_rl_applications",
         executable="foot_contact_aggregator",
-        output="both",
+        output="log",
     )
     state_estimator_node = Node(
         package="champ_base",
         executable="state_estimation_node",
-        output="screen",
+        output="both",
         parameters=[
             {"orientation_from_imu": True},
             {"urdf": robot_urdf},
@@ -174,7 +198,7 @@ def generate_launch_description():
         package="robot_localization",
         executable="ekf_node",
         name="base_to_footprint_ekf",
-        output="screen",
+        output="both",
         parameters=[
             {"base_link_frame": "base_link"},
             PathJoinSubstitution(
@@ -192,7 +216,7 @@ def generate_launch_description():
         package="robot_localization",
         executable="ekf_node",
         name="footprint_to_odom_ekf",
-        output="screen",
+        output="both",
         parameters=[
             {"base_link_frame": "base_footprint"},
             PathJoinSubstitution(
@@ -210,6 +234,7 @@ def generate_launch_description():
         package="tf2_ros",
         name="map_to_odom_tf_node",
         executable="static_transform_publisher",
+        output="log",
         parameters=[{"use_sim_time": use_sim_time}],
         arguments=[
             "--x",
@@ -245,6 +270,7 @@ def generate_launch_description():
         gazebo_spawn_entity_node,
         delay_joint_state_broadcaster_spawner,
         delay_robot_controller_spawner,
+        delay_initial_joint_positions_publisher,
         foot_contacts_node,
         state_estimator_node,
         base_to_footprint_ekf_node,
