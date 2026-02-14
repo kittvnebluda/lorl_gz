@@ -78,6 +78,9 @@ def generate_launch_description():
             " DEBUG:=",
             LaunchConfiguration("debug"),
             " command_interface:=position",
+            " disable_camera:=true",
+            " disable_lidar_l1:=true",
+            " disable_velodyne_lidar:=true",
         ]
     )
     ros_gz_bridge_cfg = PathJoinSubstitution(
