@@ -48,6 +48,9 @@ class Go2Node(Node):
         self.odom_sub = self.create_subscription(
             Odometry, "/odom", self.odom_callback, fast_qos
         )
+        self.odom_local_sub = self.create_subscription(
+            Odometry, "/odom/local", self.odom_local_callback, fast_qos
+        )
         self.joint_sub = self.create_subscription(
             JointState, "/joint_states", self.joint_states_callback, fast_qos
         )
@@ -81,12 +84,23 @@ class Go2Node(Node):
                 "Reset robot service not available, waiting again..."
             )
 
+    # From /odom (odom -> base_footprint)
     def odom_callback(self, msg: Odometry):
         lv = msg.twist.twist.linear
         av = msg.twist.twist.angular
 
-        self.base_linear_vel = np.array([lv.x, lv.y, lv.z], dtype=np.float32)
-        self.base_angular_vel = np.array([av.x, av.y, av.z], dtype=np.float32)
+        self.base_linear_vel[0] = lv.x
+        self.base_linear_vel[1] = lv.y
+        self.base_angular_vel[2] = av.z
+
+    # From /odom/local (base_footprint -> base_link)
+    def odom_local_callback(self, msg: Odometry):
+        lv = msg.twist.twist.linear
+        av = msg.twist.twist.angular
+
+        self.base_linear_vel[2] = lv.z
+        self.base_angular_vel[0] = av.x
+        self.base_angular_vel[1] = av.y
 
     def joint_states_callback(self, msg: JointState):
         if len(msg.name) != len(msg.position) or len(msg.name) != len(msg.velocity):
