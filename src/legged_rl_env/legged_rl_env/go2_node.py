@@ -156,6 +156,27 @@ class Go2Node(Node):
             return
         self.position_commands_pub.publish(Float64MultiArray(data=positions))
 
+    def print_debug_state(self):
+        now = self.get_clock().now().to_msg()
+        ts = f"{now.sec}.{now.nanosec // 1000000:03d}"
+
+        lines = [
+            f"\n{'=' * 50}",
+            f"Debug state @ {ts} (node: {self.get_name()})",
+            f"{'-' * 50}",
+            f"base_position     : {self.base_position[0]:8.3f}  {self.base_position[1]:8.3f}  {self.base_position[2]:8.3f} m",
+            f"real_position     : {self.real_position[0]:8.3f}  {self.real_position[1]:8.3f}  {self.real_position[2]:8.3f} m",
+            f"base_orientation  : roll {self.base_orientation[0]:8.3f}   pitch {self.base_orientation[1]:8.3f} rad",
+            f"real_orientation  : roll {self.real_orientation[0]:8.3f}   pitch {self.real_orientation[1]:8.3f} rad",
+            f"base_linear_vel   : vx {self.base_linear_vel[0]:8.3f}  vy {self.base_linear_vel[1]:8.3f}  vz {self.base_linear_vel[2]:8.3f} m/s",
+            f"base_angular_vel  : wx {self.base_angular_vel[0]:8.3f}  wy {self.base_angular_vel[1]:8.3f}  wz {self.base_angular_vel[2]:8.3f} rad/s",
+            f"ref_z             : {self.ref_z:8.3f} m",
+            f"joint_positions   : {np.round(self.joint_positions, 3)}",
+            f"joint_velocities  : {np.round(self.joint_velocities, 3)}",
+            f"{'=' * 50}\n",
+        ]
+        print("\n".join(lines))
+
 
 def main():
     rclpy.init()
