@@ -210,7 +210,7 @@ def generate_launch_description():
                 ]
             ),
         ],
-        remappings=[("/imu/data", "/imu")],
+        remappings=[("/imu/data", "/imu"), ("/odometry/filtered", "/odom/local")],
     )
     footprint_to_odom_ekf_node = Node(
         package="robot_localization",
@@ -228,7 +228,7 @@ def generate_launch_description():
                 ]
             ),
         ],
-        remappings=[("/imu/data", "/imu"), ("/odom/filtered", "/odom/raw")],
+        remappings=[("/imu/data", "/imu"), ("/odometry/filtered", "/odom")],
     )
     map_to_odom_tf_node = Node(
         package="tf2_ros",
