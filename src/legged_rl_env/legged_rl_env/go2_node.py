@@ -1,7 +1,7 @@
 import numpy as np
 import rclpy
 import rclpy.time
-from geometry_msgs.msg import Pose, PoseStamped
+from geometry_msgs.msg import Point, Pose, PoseStamped, Vector3
 from nav_msgs.msg import Odometry
 from numpy.typing import NDArray
 from rclpy.duration import Duration
@@ -14,11 +14,12 @@ from rclpy.qos import (
 )
 from rclpy.task import Future
 from sensor_msgs.msg import JointState
-from std_msgs.msg import Float32, Float64MultiArray
+from std_msgs.msg import ColorRGBA, Float32, Float64MultiArray
 from tf2_ros import TransformException  # pyright: ignore[reportAttributeAccessIssue]
 from tf2_ros.buffer import Buffer
 from tf2_ros.transform_listener import TransformListener
 from tf_transformations import euler_from_quaternion
+from visualization_msgs.msg import Marker
 
 from legged_rl_env.constants import joint_names, jpos_low, jvel_max
 from legged_rl_interfaces.srv import ResetRobot
@@ -71,6 +72,9 @@ class Go2Node(Node):
                 deadline=Duration(seconds=0.02),
             ),
         )
+        self.vel_marker_pub = self.create_publisher(
+            Marker, "/linear_velocity_marker", 10
+        )
 
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
@@ -83,6 +87,38 @@ class Go2Node(Node):
             self.get_logger().warn(
                 "Reset robot service not available, waiting again..."
             )
+
+        self.timer = self.create_timer(0.03, self.timer_callback)
+
+    def timer_callback(self):
+        lv = self.base_linear_vel
+        mag = np.linalg.norm(lv)
+
+        marker = Marker()
+        marker.header.frame_id = "base_link"
+        marker.header.stamp = self.get_clock().now().to_msg()
+        marker.ns = "velocity_debug"
+        marker.id = 0
+        marker.type = Marker.ARROW
+        marker.action = Marker.ADD
+
+        start = Point(x=0.0, y=0.0, z=0.0)
+        end = Point(x=float(lv[0]), y=float(lv[1]), z=float(lv[2]))
+
+        marker.points = [start, end]
+
+        marker.scale = Vector3(x=0.015, y=0.04, z=0.08)
+
+        norm_mag = np.clip(mag / 2.0, 0.0, 1.0)
+        marker.color = ColorRGBA(r=norm_mag, g=1.0 - norm_mag, b=0.0, a=0.9)
+
+        if mag < 0.01:
+            marker.scale = Vector3(x=0.01, y=0.01, z=0.01)
+            marker.color = ColorRGBA(r=0.6, g=0.6, b=0.6, a=0.5)
+
+        marker.lifetime = Duration(seconds=0, nanoseconds=200_000_000).to_msg()
+
+        self.vel_marker_pub.publish(marker)
 
     # From /odom (odom -> base_footprint)
     def odom_callback(self, msg: Odometry):
