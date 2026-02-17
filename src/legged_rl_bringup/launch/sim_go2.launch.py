@@ -198,7 +198,7 @@ def generate_launch_description():
         package="robot_localization",
         executable="ekf_node",
         name="base_to_footprint_ekf",
-        output="both",
+        output="log",
         parameters=[
             {"base_link_frame": "base_link"},
             PathJoinSubstitution(
@@ -210,13 +210,18 @@ def generate_launch_description():
                 ]
             ),
         ],
-        remappings=[("/imu/data", "/imu"), ("/odometry/filtered", "/odom/local")],
+        remappings=[
+            ("/imu/data", "/imu"),
+            ("/odometry/filtered", "/odom/local"),
+            ("/set_pose", "/base_to_footprint_ekf/set_pose"),
+        ],
+        arguments=["--ros-args", "--log-level", "warn"],
     )
     footprint_to_odom_ekf_node = Node(
         package="robot_localization",
         executable="ekf_node",
         name="footprint_to_odom_ekf",
-        output="both",
+        output="log",
         parameters=[
             {"base_link_frame": "base_footprint"},
             PathJoinSubstitution(
@@ -228,7 +233,12 @@ def generate_launch_description():
                 ]
             ),
         ],
-        remappings=[("/imu/data", "/imu"), ("/odometry/filtered", "/odom")],
+        remappings=[
+            ("/imu/data", "/imu"),
+            ("/odometry/filtered", "/odom"),
+            ("/set_pose", "/footprint_to_odom_ekf/set_pose"),
+        ],
+        arguments=["--ros-args", "--log-level", "warn"],
     )
     map_to_odom_tf_node = Node(
         package="tf2_ros",

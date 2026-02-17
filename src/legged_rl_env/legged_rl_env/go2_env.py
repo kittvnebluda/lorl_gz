@@ -17,6 +17,7 @@ from legged_rl_env.constants import (
     stable_standing_joint_positions,
 )
 from legged_rl_env.go2_node import Go2Node
+from legged_rl_env.utils import ServiceCall, bool_res_handler, wait_for_all_futures
 
 
 class Done(Enum):
@@ -139,18 +140,32 @@ class Go2Env(gym.Env):
         pose.orientation.y = y
         pose.orientation.z = z
 
-        future = self.node.send_reset_request(pose, self.q_homing)
-        self.executor.spin_until_future_complete(
-            future, timeout_sec=self.reset_srv_timeout
-        )
+        pose_base_foot = Pose()
+        pose_base_foot.position.z = pose.position.z
+        pose_base_foot.orientation = pose.orientation
 
-        if not future.done():
-            self.node.get_logger().error("Reset timeout")
-            raise TimeoutError("Reset service execution timed out")
+        pose_foot_odom = Pose()
+        pose_foot_odom.position.x = pose.position.x
+        pose_foot_odom.position.y = pose.position.y
 
-        if not future.result():
-            self.node.get_logger().error("Reset failed")
-            raise RuntimeError("Reset service returned failure")
+        futures = [
+            ServiceCall(
+                "Robot reset service",
+                self.node.send_reset_request(pose, self.q_homing),
+                bool_res_handler,
+            ),
+            ServiceCall(
+                "Base to footprint EKF set pose service",
+                self.node.send_base_to_foot_ekf_set_pose_request(pose_base_foot),
+                None,
+            ),
+            ServiceCall(
+                "Footprint to odom EKF set pose service",
+                self.node.send_foot_to_odom_ekf_set_pose_request(pose_foot_odom),
+                None,
+            ),
+        ]
+        wait_for_all_futures(self.executor, futures, self.node.get_logger())
 
         while not self.node.tf_buffer.can_transform(
             self.node.target_frame,

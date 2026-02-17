@@ -1,7 +1,13 @@
 import numpy as np
 import rclpy
 import rclpy.time
-from geometry_msgs.msg import Point, Pose, PoseStamped, Vector3
+from geometry_msgs.msg import (
+    Point,
+    Pose,
+    PoseStamped,
+    PoseWithCovarianceStamped,
+    Vector3,
+)
 from nav_msgs.msg import Odometry
 from numpy.typing import NDArray
 from rclpy.duration import Duration
@@ -13,6 +19,7 @@ from rclpy.qos import (
     ReliabilityPolicy,
 )
 from rclpy.task import Future
+from robot_localization.srv import SetPose
 from sensor_msgs.msg import JointState
 from std_msgs.msg import ColorRGBA, Float32, Float64MultiArray
 from tf2_ros import TransformException  # pyright: ignore[reportAttributeAccessIssue]
@@ -39,6 +46,17 @@ class Go2Node(Node):
         self.real_position = np.zeros(3, dtype=np.float32)
         self.real_orientation = np.zeros(3, dtype=np.float32)
 
+        # fmt: off
+        self._minimal_covariance = [
+            1e-9, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 1e-9, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 1e-9, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 1e-9, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 1e-9, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 1e-9,
+        ]
+        # fmt: on
+
         fast_qos = QoSProfile(
             reliability=ReliabilityPolicy.BEST_EFFORT,
             history=HistoryPolicy.KEEP_LAST,
@@ -46,6 +64,7 @@ class Go2Node(Node):
             durability=DurabilityPolicy.VOLATILE,
         )
 
+        # Subscribers
         self.odom_sub = self.create_subscription(
             Odometry, "/odom", self.odom_callback, fast_qos
         )
@@ -61,6 +80,8 @@ class Go2Node(Node):
         self.real_pose_sub = self.create_subscription(
             PoseStamped, "/real_pose", self.real_pose_callback, fast_qos
         )
+
+        # Publishers
         self.position_commands_pub = self.create_publisher(
             Float64MultiArray,
             "/position_controller/commands",
@@ -76,58 +97,77 @@ class Go2Node(Node):
             Marker, "/linear_velocity_marker", 10
         )
 
+        # TF
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
         self.source_frame = "base_link"
         self.target_frame = "map"
-        self.reset_req = ResetRobot.Request()
 
+        # Services
         self.resetter = self.create_client(ResetRobot, "reset_robot")
-        while wait_for_services and not self.resetter.wait_for_service(5.0):
-            self.get_logger().warn(
-                "Reset robot service not available, waiting again..."
-            )
+        self.base_to_foot_ekf_pose_setter = self.create_client(
+            SetPose, "/base_to_footprint_ekf/set_pose"
+        )
+        self.foot_to_odom_ekf_pose_setter = self.create_client(
+            SetPose, "/footprint_to_odom_ekf/set_pose"
+        )
 
-        self.timer = self.create_timer(0.03, self.timer_callback)
+        while (
+            wait_for_services
+            and not self.resetter.wait_for_service(5.0)
+            and not self.base_to_foot_ekf_pose_setter.wait_for_service(5.0)
+            and not self.foot_to_odom_ekf_pose_setter.wait_for_service(5.0)
+        ):
+            self.get_logger().warn("Some services are not available, waiting again...")
 
-    def timer_callback(self):
+        # Timer
+        self.timer = self.create_timer(0.03, self.publish_vel_marker)
+
+        # Messages
+        self.vel_marker = Marker()
+        self.vel_marker.header.frame_id = "base_link"
+        self.vel_marker.ns = "velocity_debug"
+        self.vel_marker.id = 0
+        self.vel_marker.type = Marker.ARROW
+        self.vel_marker.action = Marker.ADD
+
+        self.point_zero = Point(x=0.0, y=0.0, z=0.0)
+
+        self.base_to_foot_ekf_pose_msg = PoseWithCovarianceStamped()
+        self.base_to_foot_ekf_pose_msg.header.frame_id = "base_footprint"
+        self.base_to_foot_ekf_pose_msg.pose.covariance = self._minimal_covariance
+
+        self.foot_to_odom_ekf_pose_msg = PoseWithCovarianceStamped()
+        self.foot_to_odom_ekf_pose_msg.header.frame_id = "odom"
+        self.foot_to_odom_ekf_pose_msg.pose.covariance = self._minimal_covariance
+
+    def publish_vel_marker(self):
         lv = self.base_linear_vel
         mag = np.linalg.norm(lv)
-
-        marker = Marker()
-        marker.header.frame_id = "base_link"
-        marker.header.stamp = self.get_clock().now().to_msg()
-        marker.ns = "velocity_debug"
-        marker.id = 0
-        marker.type = Marker.ARROW
-        marker.action = Marker.ADD
-
-        start = Point(x=0.0, y=0.0, z=0.0)
         end = Point(x=float(lv[0]), y=float(lv[1]), z=float(lv[2]))
-
-        marker.points = [start, end]
-
-        marker.scale = Vector3(x=0.015, y=0.04, z=0.08)
-
         norm_mag = np.clip(mag / 2.0, 0.0, 1.0)
-        marker.color = ColorRGBA(r=norm_mag, g=1.0 - norm_mag, b=0.0, a=0.9)
+
+        self.vel_marker.header.stamp = self.get_clock().now().to_msg()
+        self.vel_marker.points = [self.point_zero, end]
+        self.vel_marker.lifetime = Duration(seconds=0, nanoseconds=200_000_000).to_msg()
 
         if mag < 0.01:
-            marker.scale = Vector3(x=0.01, y=0.01, z=0.01)
-            marker.color = ColorRGBA(r=0.6, g=0.6, b=0.6, a=0.5)
+            self.vel_marker.scale = Vector3(x=0.01, y=0.01, z=0.01)
+            self.vel_marker.color = ColorRGBA(r=0.6, g=0.6, b=0.6, a=0.5)
+        else:
+            self.vel_marker.scale = Vector3(x=0.015, y=0.04, z=0.08)
+            self.vel_marker.color = ColorRGBA(
+                r=norm_mag, g=1.0 - norm_mag, b=0.0, a=0.9
+            )
 
-        marker.lifetime = Duration(seconds=0, nanoseconds=200_000_000).to_msg()
-
-        self.vel_marker_pub.publish(marker)
+        self.vel_marker_pub.publish(self.vel_marker)
 
     # From /odom (odom -> base_footprint)
     def odom_callback(self, msg: Odometry):
         lv = msg.twist.twist.linear
-        av = msg.twist.twist.angular
 
         self.base_linear_vel[0] = lv.x
         self.base_linear_vel[1] = lv.y
-        self.base_angular_vel[2] = av.z
 
     # From /odom/local (base_footprint -> base_link)
     def odom_local_callback(self, msg: Odometry):
@@ -137,6 +177,7 @@ class Go2Node(Node):
         self.base_linear_vel[2] = lv.z
         self.base_angular_vel[0] = av.x
         self.base_angular_vel[1] = av.y
+        self.base_angular_vel[2] = av.z
 
     def joint_states_callback(self, msg: JointState):
         if len(msg.name) != len(msg.position) or len(msg.name) != len(msg.velocity):
@@ -181,10 +222,25 @@ class Go2Node(Node):
     def send_reset_request(
         self, pose: Pose, joint_positions: tuple[float, ...] | NDArray
     ) -> Future:
-        self.reset_req.pose = pose
-        self.reset_req.joint_positions = joint_positions
-        self.reset_req.joint_names = joint_names
-        return self.resetter.call_async(self.reset_req)
+        reset_req = ResetRobot.Request()
+        reset_req.pose = pose
+        reset_req.joint_positions = joint_positions
+        reset_req.joint_names = joint_names
+        return self.resetter.call_async(reset_req)
+
+    def send_base_to_foot_ekf_set_pose_request(self, pose: Pose) -> Future:
+        self.base_to_foot_ekf_pose_msg.header.stamp = self.get_clock().now().to_msg()
+        self.base_to_foot_ekf_pose_msg.pose.pose = pose
+        req = SetPose.Request()
+        req.pose = self.base_to_foot_ekf_pose_msg
+        return self.base_to_foot_ekf_pose_setter.call_async(req)
+
+    def send_foot_to_odom_ekf_set_pose_request(self, pose: Pose) -> Future:
+        self.foot_to_odom_ekf_pose_msg.header.stamp = self.get_clock().now().to_msg()
+        self.foot_to_odom_ekf_pose_msg.pose.pose = pose
+        req = SetPose.Request()
+        req.pose = self.foot_to_odom_ekf_pose_msg
+        return self.foot_to_odom_ekf_pose_setter.call_async(req)
 
     def publish_position_commands(self, positions: tuple[float, ...] | NDArray):
         if len(positions) != 12:
