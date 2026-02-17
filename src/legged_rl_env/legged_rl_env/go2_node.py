@@ -74,8 +74,8 @@ class Go2Node(Node):
 
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
-        self.source_frame = "map"
-        self.target_frame = "base_link"
+        self.source_frame = "base_link"
+        self.target_frame = "map"
         self.reset_req = ResetRobot.Request()
 
         self.resetter = self.create_client(ResetRobot, "reset_robot")
