@@ -31,6 +31,8 @@ def main(args):
         while 1:
             action, _ = model.predict(obs, deterministic=True)
             obs, rewards, dones, info = vec_env.step(action)
+            if args.debug:
+                env.unwrapped.node.print_debug_state()
 
             if dones[0]:
                 time_of_lifes.append(time() - start_time)
@@ -47,6 +49,7 @@ def main(args):
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("model", type=str)
+    parser.add_argument("--debug", "-d", action="store_true")
     args = parser.parse_args()
 
     if len(args.model) == 0:
