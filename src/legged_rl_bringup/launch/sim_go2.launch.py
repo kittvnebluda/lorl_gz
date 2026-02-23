@@ -19,6 +19,8 @@ from launch_ros.actions import Node, SetParameter
 from launch_ros.substitutions import FindPackageShare
 from ros_gz_bridge.actions import RosGzBridge
 
+gz_log_lvls = {"fatal": 0, "error": 1, "warn": 2, "info": 3, "debug": 4}
+
 
 def generate_launch_description():
     # Package shared directories
@@ -41,7 +43,11 @@ def generate_launch_description():
 
     # Declare arguments
     declared_arguments = [
-        DeclareLaunchArgument("world", default_value=default_gazebo_world),
+        DeclareLaunchArgument(
+            "world",
+            default_value=default_gazebo_world,
+            description="Absolute SDF world path for the Gazebo to load",
+        ),
         DeclareLaunchArgument(
             "debug",
             default_value="false",
@@ -54,10 +60,16 @@ def generate_launch_description():
             choices=["true", "false"],
             description="If false, RViz will not be launched, Gazebo will run headless",
         ),
+        DeclareLaunchArgument(
+            "log-level",
+            default_value="warn",
+            choices=["fatal", "error", "warn", "info", "debug"],
+        ),
     ]
 
     # Initialize arguments
     use_sim_time = True
+    log_lvl_arg = ["--log-level", LaunchConfiguration("log-level")]
     joints_config = PathJoinSubstitution(
         [unitree_go2_sim_pkg_path, "config", "joints", "joints.yaml"]
     )
@@ -88,8 +100,8 @@ def generate_launch_description():
         [legged_rl_bringup_pkg_path, "config", "ros_gz_bridge.yaml"]
     )
 
-    # Set common parameters
-    parameters = [SetParameter(name="use_sim_time", value=use_sim_time)]
+    # Declare parameters
+    parameters = [SetParameter("use_sim_time", use_sim_time)]
 
     # Declare nodes
     robot_state_publisher_node = Node(
@@ -97,6 +109,7 @@ def generate_launch_description():
         executable="robot_state_publisher",
         output="screen",
         parameters=[{"robot_description": robot_urdf}],
+        ros_arguments=log_lvl_arg,
     )
     gazebo_sim_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -105,10 +118,13 @@ def generate_launch_description():
         launch_arguments={
             "gz_args": [
                 PathSubstitution(LaunchConfiguration("world")),
-                " -r",
                 PythonExpression(
-                    [" '-s' if '", LaunchConfiguration("gui"), "' == 'false' else ''"]
+                    [" '-s' if '", LaunchConfiguration("gui"), "' == 'false' else ' '"]
                 ),
+                PythonExpression(
+                    [f"{gz_log_lvls}['", LaunchConfiguration("log-level"), "']"]
+                ),
+                " -r ",
             ],
             "on_exit_shutdown": "True",
         }.items(),
@@ -123,12 +139,14 @@ def generate_launch_description():
             "-z",
             "0.4",
         ],
+        ros_arguments=log_lvl_arg,
     )
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
         output="log",
         arguments=["joint_state_broadcaster"],
+        ros_arguments=log_lvl_arg,
     )
     delay_joint_state_broadcaster_spawner = RegisterEventHandler(
         event_handler=OnProcessExit(
@@ -145,6 +163,7 @@ def generate_launch_description():
             "--param-file",
             robot_controllers,
         ],
+        ros_arguments=log_lvl_arg,
     )
     delay_robot_controller_spawner = RegisterEventHandler(
         event_handler=OnProcessExit(
@@ -174,12 +193,15 @@ def generate_launch_description():
         )
     )
     gazebo_bridge = RosGzBridge(
-        bridge_name="ros_gazebo_bridge", config_file=ros_gz_bridge_cfg
+        bridge_name="ros_gazebo_bridge",
+        config_file=ros_gz_bridge_cfg,
+        log_level=LaunchConfiguration("log-level"),
     )
     foot_contacts_node = Node(
         package="legged_rl_applications",
         executable="foot_contact_aggregator",
         output="log",
+        ros_arguments=log_lvl_arg,
     )
     state_estimator_node = Node(
         package="champ_base",
@@ -192,6 +214,7 @@ def generate_launch_description():
             links_config,
             gait_config,
         ],
+        ros_arguments=log_lvl_arg,
         remappings=[("/imu/data", "/imu")],
     )
     base_to_footprint_ekf_node = Node(
@@ -210,12 +233,12 @@ def generate_launch_description():
                 ]
             ),
         ],
+        ros_arguments=log_lvl_arg,
         remappings=[
             ("/imu/data", "/imu"),
             ("/odometry/filtered", "/odom/local"),
             ("/set_pose", "/base_to_footprint_ekf/set_pose"),
         ],
-        arguments=["--ros-args", "--log-level", "warn"],
     )
     footprint_to_odom_ekf_node = Node(
         package="robot_localization",
@@ -233,12 +256,12 @@ def generate_launch_description():
                 ]
             ),
         ],
+        ros_arguments=log_lvl_arg,
         remappings=[
             ("/imu/data", "/imu"),
             ("/odometry/filtered", "/odom"),
             ("/set_pose", "/footprint_to_odom_ekf/set_pose"),
         ],
-        arguments=["--ros-args", "--log-level", "warn"],
     )
     map_to_odom_tf_node = Node(
         package="tf2_ros",
@@ -264,12 +287,14 @@ def generate_launch_description():
             "--child-frame-id",
             "odom",
         ],
+        ros_arguments=log_lvl_arg,
     )
     rviz_node = Node(
         package="rviz2",
         executable="rviz2",
         name="rviz2",
         arguments=["-d", default_rviz_cfg],
+        ros_arguments=log_lvl_arg,
         condition=IfCondition(LaunchConfiguration("gui")),
     )
 
