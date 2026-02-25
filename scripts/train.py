@@ -1,15 +1,16 @@
 from argparse import ArgumentParser
-from time import sleep
 
+from numpy.random import randint
 import rclpy
 import torch
 from legged_rl_env.go2_env import Go2Env
 from legged_rl_env.gym_wrappers import FlattenObsDict
 from legged_rl_env.training import ALGOS
-from rclpy.node import Node
 from stable_baselines3.common.callbacks import BaseCallback, CheckpointCallback
 from stable_baselines3.common.env_checker import check_env
 from stable_baselines3.common.evaluation import evaluate_policy
+from stable_baselines3.common.logger import HParam
+from stable_baselines3.common.utils import set_random_seed
 
 assert torch.xpu.is_available(), "XPU not available"
 assert torch.xpu.device_count() > 0, "No XPU devices found"
@@ -18,42 +19,72 @@ MODEL_DIR = "./models/"
 TENSORBOARD_LOG_DIR = "./tensorboard/"
 DEVICE = "xpu"
 
+random_seed = randint(0, 2**32 - 1)
+
 
 class TensorboardCallback(BaseCallback):
     def __init__(self, verbose=0):
         super().__init__(verbose)
 
     def _on_step(self) -> bool:
-        action_magnitudes = []
-        for env in self.training_env.envs:
-            action_magnitudes.append(env.unwrapped.action_magnitude)
+        step_log_mean = {}
 
-        self.logger.record(
-            "action_magnitude", sum(action_magnitudes) / len(action_magnitudes)
-        )
+        envs = self.training_env.envs  # pyright: ignore[reportAttributeAccessIssue]
+        n_envs = len(envs)
+
+        # Accumulate
+        for env in envs:
+            sl = env.unwrapped.step_log
+            for key, value in sl.items():
+                step_log_mean[key] = step_log_mean.get(key, 0.0) + float(value)
+
+        # Average and record
+        for key in step_log_mean:
+            step_log_mean[key] /= n_envs
+            self.logger.record(f"step/{key}", step_log_mean[key])
+
         return True
 
 
-class SimSyncCallback(BaseCallback):
-    def __init__(self, node: Node, target_dt=0.01, verbose=0):
+class HParamCallback(BaseCallback):
+    def __init__(self, params, verbose: int = 0):
         super().__init__(verbose)
-        self.node = node
-        self.target_dt = target_dt
-        self.target_dt_with_reserve = self.target_dt * 0.8
-        self.last_time = self.node.get_clock().now()
+        self.params = params
+
+    def _on_training_start(self) -> None:
+        hparam_dict = {
+            "algorithm": self.model.__class__.__name__,
+            "model_seed": int(random_seed),
+        }
+        hparam_dict.update(self.params)
+
+        metric_dict = {
+            "step/ep_time": 0.0,
+            "step/errors/xy_vel": 0.0,
+            "step/errors/wz": 0.0,
+            "step/errors/z": 0.0,
+            "step/orientation/pitch": 0.0,
+            "step/orientation/roll": 0.0,
+            "train/actor_loss": 0.0,
+            "train/critic_loss": 0.0,
+        }
+        self.logger.record(
+            "hparams",
+            HParam(hparam_dict, metric_dict),
+            exclude=("stdout", "log", "json", "csv"),
+        )
 
     def _on_step(self) -> bool:
-        current_time = self.node.get_clock().now()
-        dt = (current_time - self.last_time).nanoseconds
-        if dt <= self.target_dt_with_reserve:
-            sleep(self.target_dt - dt)
-        self.last_time = current_time
         return True
 
 
 def main(args):
+    set_random_seed(random_seed)
+
     env = FlattenObsDict(Go2Env())
     check_env(env)
+
+    logger = env.unwrapped.node.get_logger()  # pyright: ignore[reportAttributeAccessIssue]
 
     if args.load_model:
         algo_name = args.load_model.split("_")[-1].replace(".zip", "")
@@ -85,7 +116,7 @@ def main(args):
 
     if args.load_model:
         print(f"Loading model {model_name}")
-        model = algo_cls.load(MODEL_DIR + model_name, **params)
+        model = algo_cls.load(model_name, **params)
     else:
         print(f"Creating new model {model_name}")
         model = algo_cls(**params)
@@ -95,23 +126,21 @@ def main(args):
         progress_bar=True,
         callback=[
             TensorboardCallback(),
+            HParamCallback(cfg["params"]),
             checkpoint_callback,
-            # SimSyncCallback(env.unwrapped.node),
         ],
     )
     model.save(MODEL_DIR + model_save_name)
 
-    env.unwrapped.node.get_logger().info("Training finished")
+    logger.info("Training finished")
 
     vec_env = model.get_env()
     if vec_env is None:
-        env.unwrapped.node.get_logger().info("Vec Env is None")
+        logger.info("Vec Env is None")
         return
 
     mean_reward, std_reward = evaluate_policy(model, vec_env, n_eval_episodes=10)
-    env.unwrapped.node.get_logger().info(
-        f"Reward mean: {mean_reward}, std: {std_reward}"
-    )
+    logger.info(f"Reward mean: {mean_reward}, std: {std_reward}")
 
 
 if __name__ == "__main__":
@@ -121,7 +150,7 @@ if __name__ == "__main__":
         "-l",
         type=str,
         default="",
-        help=f"Name of the file to load from {MODEL_DIR} directory",
+        help="Name of the file to load",
     )
     parser.add_argument("--total_timesteps", "-t", type=int, default=50000)
     parser.add_argument(
@@ -139,4 +168,7 @@ if __name__ == "__main__":
     assert len(args.name) != 0 and len(args.algo) != 0, "Invalid arguments"
 
     rclpy.init(args=["--ros-args", "-p", "use_sim_time:=true"])
-    main(args)
+    try:
+        main(args)
+    except KeyboardInterrupt:
+        pass
