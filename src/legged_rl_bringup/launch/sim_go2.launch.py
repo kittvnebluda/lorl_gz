@@ -4,12 +4,14 @@ from launch.actions import (
     ExecuteProcess,
     IncludeLaunchDescription,
     RegisterEventHandler,
+    SetEnvironmentVariable,
 )
 from launch.conditions import IfCondition
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import (
     Command,
+    EnvironmentVariable,
     LaunchConfiguration,
     PathJoinSubstitution,
     PathSubstitution,
@@ -23,14 +25,14 @@ gz_log_lvls = {"fatal": 0, "error": 1, "warn": 2, "info": 3, "debug": 4}
 
 
 def generate_launch_description():
-    # Package shared directories
     legged_rl_gazebo_pkg_path = FindPackageShare("legged_rl_gazebo")
     legged_rl_bringup_pkg_path = FindPackageShare("legged_rl_bringup")
     legged_rl_description_pkg_path = FindPackageShare("legged_rl_description")
     ros_gz_sim_pkg_path = FindPackageShare("ros_gz_sim")
     unitree_go2_sim_pkg_path = FindPackageShare("unitree_go2_sim")
 
-    # Set default arguments
+    use_sim_time = True
+
     default_robot_description = PathJoinSubstitution(
         [legged_rl_description_pkg_path, "urdf", "go2.urdf.xacro"]
     )
@@ -40,9 +42,49 @@ def generate_launch_description():
     default_rviz_cfg = PathJoinSubstitution(
         [legged_rl_bringup_pkg_path, "rviz", "go2.rviz"]
     )
+    joints_config = PathJoinSubstitution(
+        [unitree_go2_sim_pkg_path, "config", "joints", "joints.yaml"]
+    )
+    gait_config = PathJoinSubstitution(
+        [unitree_go2_sim_pkg_path, "config", "gait", "gait.yaml"]
+    )
+    links_config = PathJoinSubstitution(
+        [unitree_go2_sim_pkg_path, "config", "links", "links.yaml"]
+    )
+    robot_controllers = PathJoinSubstitution(
+        [legged_rl_bringup_pkg_path, "config", "go2_controllers.yaml"]
+    )
+    ros_gz_bridge_cfg = PathJoinSubstitution(
+        [legged_rl_bringup_pkg_path, "config", "ros_gz_bridge.yaml"]
+    )
+    robot_urdf = Command(
+        [
+            "xacro ",
+            default_robot_description,
+            " robot_controllers:=",
+            robot_controllers,
+            " DEBUG:=",
+            LaunchConfiguration("debug"),
+            " command_interface:=position",
+            " disable_camera:=true",
+            " disable_lidar_l1:=true",
+            " disable_velodyne_lidar:=true",
+        ]
+    )
+    log_lvl_arg = ["--log-level", LaunchConfiguration("log-level")]
+    hostname_user_string = PythonExpression(
+        [
+            "'",
+            EnvironmentVariable("HOSTNAME"),
+            "'",
+            " + ':' + '",
+            EnvironmentVariable("USER", default_value="ayaya"),
+            "'",
+        ]
+    )
 
     # Declare arguments
-    declared_arguments = [
+    arguments = [
         DeclareLaunchArgument(
             "world",
             default_value=default_gazebo_world,
@@ -65,40 +107,23 @@ def generate_launch_description():
             default_value="warn",
             choices=["fatal", "error", "warn", "info", "debug"],
         ),
+        DeclareLaunchArgument(
+            "gz-partition",
+            default_value=EnvironmentVariable(
+                "GZ_PARTITION", default_value=hostname_user_string
+            ),
+        ),
+        DeclareLaunchArgument(
+            "ros-domain-id",
+            default_value=EnvironmentVariable("ROS_DOMAIN_ID", default_value="52"),
+        ),
     ]
 
-    # Initialize arguments
-    use_sim_time = True
-    log_lvl_arg = ["--log-level", LaunchConfiguration("log-level")]
-    joints_config = PathJoinSubstitution(
-        [unitree_go2_sim_pkg_path, "config", "joints", "joints.yaml"]
-    )
-    gait_config = PathJoinSubstitution(
-        [unitree_go2_sim_pkg_path, "config", "gait", "gait.yaml"]
-    )
-    links_config = PathJoinSubstitution(
-        [unitree_go2_sim_pkg_path, "config", "links", "links.yaml"]
-    )
-    robot_controllers = PathJoinSubstitution(
-        [legged_rl_bringup_pkg_path, "config", "go2_controllers.yaml"]
-    )
-    robot_urdf = Command(
-        [
-            "xacro ",
-            default_robot_description,
-            " robot_controllers:=",
-            robot_controllers,
-            " DEBUG:=",
-            LaunchConfiguration("debug"),
-            " command_interface:=position",
-            " disable_camera:=true",
-            " disable_lidar_l1:=true",
-            " disable_velodyne_lidar:=true",
-        ]
-    )
-    ros_gz_bridge_cfg = PathJoinSubstitution(
-        [legged_rl_bringup_pkg_path, "config", "ros_gz_bridge.yaml"]
-    )
+    # Set environment
+    env = [
+        SetEnvironmentVariable("GZ_PARTITION", LaunchConfiguration("gz-partition")),
+        SetEnvironmentVariable("ROS_DOMAIN_ID", LaunchConfiguration("ros-domain-id")),
+    ]
 
     # Declare parameters
     parameters = [SetParameter("use_sim_time", use_sim_time)]
@@ -119,12 +144,12 @@ def generate_launch_description():
             "gz_args": [
                 PathSubstitution(LaunchConfiguration("world")),
                 PythonExpression(
-                    [" '-s' if '", LaunchConfiguration("gui"), "' == 'false' else ' '"]
+                    [" ' -s' if '", LaunchConfiguration("gui"), "' == 'false' else ' '"]
                 ),
+                " -rv",
                 PythonExpression(
                     [f"{gz_log_lvls}['", LaunchConfiguration("log-level"), "']"]
                 ),
-                " -r ",
             ],
             "on_exit_shutdown": "True",
         }.items(),
@@ -223,7 +248,6 @@ def generate_launch_description():
         name="base_to_footprint_ekf",
         output="log",
         parameters=[
-            {"base_link_frame": "base_link"},
             PathJoinSubstitution(
                 [
                     FindPackageShare("champ_base"),
@@ -246,7 +270,6 @@ def generate_launch_description():
         name="footprint_to_odom_ekf",
         output="log",
         parameters=[
-            {"base_link_frame": "base_footprint"},
             PathJoinSubstitution(
                 [
                     FindPackageShare("champ_base"),
@@ -263,6 +286,7 @@ def generate_launch_description():
             ("/set_pose", "/footprint_to_odom_ekf/set_pose"),
         ],
     )
+    # fmt: off
     map_to_odom_tf_node = Node(
         package="tf2_ros",
         name="map_to_odom_tf_node",
@@ -270,25 +294,18 @@ def generate_launch_description():
         output="log",
         parameters=[{"use_sim_time": use_sim_time}],
         arguments=[
-            "--x",
-            "0",
-            "--y",
-            "0",
-            "--z",
-            "0",
-            "--roll",
-            "0",
-            "--pitch",
-            "0",
-            "--yaw",
-            "0",
-            "--frame-id",
-            "map",
-            "--child-frame-id",
-            "odom",
+            "--x", "0",
+            "--y", "0",
+            "--z", "0",
+            "--roll", "0",
+            "--pitch", "0",
+            "--yaw", "0",
+            "--frame-id", "map",
+            "--child-frame-id", "odom",
         ],
         ros_arguments=log_lvl_arg,
     )
+    # fmt: on
     rviz_node = Node(
         package="rviz2",
         executable="rviz2",
@@ -314,4 +331,4 @@ def generate_launch_description():
         rviz_node,
     ]
 
-    return LaunchDescription(declared_arguments + parameters + nodes)
+    return LaunchDescription(arguments + env + parameters + nodes)
