@@ -1,6 +1,6 @@
 ---
-BasedOnStyle: Google
-IndentWidth: 2
+BasedOnStyle: Mozilla
+IndentWidth: 4
 ColumnLimit: 100
 AllowShortFunctionsOnASingleLine: None
 BreakBeforeBraces: Allman
