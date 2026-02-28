@@ -39,7 +39,6 @@ ResetSystem::ResetSystem()
 {
     if (!rclcpp::ok())
         rclcpp::init(0, nullptr);
-    node_ = rclcpp::Node::make_shared("reset_robot_server");
 };
 
 ResetSystem::~ResetSystem()
@@ -57,9 +56,11 @@ ResetSystem::Configure(const gz::sim::Entity& _entity,
     model_ = gz::sim::Model(_entity);
     if (!model_.Valid(_ecm))
     {
-        RCLCPP_ERROR(node_->get_logger(), "ResetSystem must be attached to a model");
+        gzerr << "ResetSystem must be attached to a model\n";
         return;
     }
+
+    node_ = rclcpp::Node::make_shared(model_.Name(_ecm) + "_reset_robot_server");
 
     for (const auto& joint_entity : model_.Joints(_ecm))
     {
@@ -106,7 +107,7 @@ ResetSystem::Configure(const gz::sim::Entity& _entity,
     RCLCPP_INFO(node_->get_logger(), "Found %zu actuated joints for reset.", joint_num_);
 
     service_ = node_->create_service<legged_rl_interfaces::srv::ResetRobot>(
-      "reset_robot",
+      model_.Name(_ecm) + "_reset_robot",
       std::bind(&ResetSystem::onResetRobot, this, std::placeholders::_1, std::placeholders::_2),
       rclcpp::QoS(rclcpp::KeepLast(1)));
 
