@@ -1,10 +1,12 @@
+from argparse import ArgumentParser
+
 import rclpy
 from gymnasium.utils.env_checker import check_env
 
 from legged_rl_env.go2_env import Go2Env
 
 
-def main():
+def main(args):
     env = Go2Env()
 
     obs, info = env.reset()
@@ -21,23 +23,25 @@ def main():
     except Exception as e:
         env.node.get_logger().warn(f"Exception in check_env: {e}")
 
-    for _ in range(5):
-        done = False
-        total_reward = 0
-
-        while not done:
+    try:
+        while 1:
             action = env.action_space.sample()
             obs, reward, terminated, truncated, info = env.step(action)
-
             done = terminated or truncated
-            total_reward += reward
-
-        print("Episode reward:", total_reward)
-        env.reset()
-
-    env.close()
+            if args.debug:
+                env.print_debug_state()
+            if done:
+                env.reset()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        env.close()
 
 
 if __name__ == "__main__":
+    parser = ArgumentParser()
+    parser.add_argument("--debug", "-d", action="store_true")
+    args = parser.parse_args()
+
     rclpy.init(args=["--ros-args", "-p", "use_sim_time:=true"])
-    main()
+    main(args)

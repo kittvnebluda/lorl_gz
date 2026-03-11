@@ -9,7 +9,7 @@ from numpy import mean
 
 
 def main(args):
-    env = FlattenObsDict(Go2Env())
+    env = FlattenObsDict(Go2Env(learning=False))
 
     algo_name = args.model.split("_")[-1].replace(".zip", "")
     try:
@@ -35,14 +35,7 @@ def main(args):
             action, _ = model.predict(obs, deterministic=True)
             obs, rewards, dones, info = vec_env.step(action)
             if args.debug:
-                env.unwrapped.node.print_debug_state()
-                lines = [
-                    f"Ref Z   : {env.unwrapped._ref_z}",
-                    f"Ref VX  : {env.unwrapped._ref_vel[0]}",
-                    f"Ref VY  : {env.unwrapped._ref_vel[1]}",
-                    f"Ref WZ  : {env.unwrapped._ref_vel[2]}",
-                ]
-                print("\n".join(lines))
+                env.unwrapped.print_debug_state()
 
             if dones[0]:
                 time_of_lifes.append(time() - start_time)
@@ -52,8 +45,8 @@ def main(args):
         print()
         pass
 
-    print(f"Mean time of life: {mean(time_of_lifes):.2f}s")
     print(f"Min time of life: {min(time_of_lifes):2f}s")
+    print(f"Avg time of life: {mean(time_of_lifes):.2f}s")
     print(f"Max time of life: {max(time_of_lifes):2f}s")
 
 
