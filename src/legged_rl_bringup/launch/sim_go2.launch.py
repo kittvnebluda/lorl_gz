@@ -95,10 +95,16 @@ def generate_launch_description():
             description="If true, the robot will be fixed relative to the map frame",
         ),
         DeclareLaunchArgument(
-            "gui",
-            default_value="true",
+            "rviz",
+            default_value="false",
             choices=["true", "false"],
-            description="If false, RViz will not be launched, Gazebo will run headless",
+            description="Launch RViz or not",
+        ),
+        DeclareLaunchArgument(
+            "headless",
+            default_value="false",
+            choices=["true", "false"],
+            description="If true, RViz will not be launched, Gazebo will run headless",
         ),
         DeclareLaunchArgument(
             "log-level",
@@ -142,7 +148,11 @@ def generate_launch_description():
             "gz_args": [
                 PathSubstitution(LaunchConfiguration("world")),
                 PythonExpression(
-                    [" ' -s' if '", LaunchConfiguration("gui"), "' == 'false' else ' '"]
+                    [
+                        " ' -s' if '",
+                        LaunchConfiguration("headless"),
+                        "' == 'true' else ' '",
+                    ]
                 ),
                 " -rv",
                 PythonExpression(
@@ -329,7 +339,7 @@ def generate_launch_description():
         name="rviz2",
         arguments=["-d", default_rviz_cfg],
         ros_arguments=log_lvl_arg,
-        condition=IfCondition(LaunchConfiguration("gui")),
+        condition=IfCondition(LaunchConfiguration("rviz")),
     )
 
     nodes = [
