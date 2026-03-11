@@ -1,14 +1,15 @@
-from argparse import ArgumentParser
 from time import time
 
-import rclpy
 from legged_rl_env.go2_env import Go2Env
 from legged_rl_env.gym_wrappers import FlattenObsDict
-from legged_rl_env.training import ALGOS
 from numpy import mean
 
+from .train import ALGOS
 
-def main(args):
+
+def run_agent(args):
+    assert args.model, "Invalid model argument"
+
     env = FlattenObsDict(Go2Env(learning=False))
 
     algo_name = args.model.split("_")[-1].replace(".zip", "")
@@ -48,17 +49,3 @@ def main(args):
     print(f"Min time of life: {min(time_of_lifes):2f}s")
     print(f"Avg time of life: {mean(time_of_lifes):.2f}s")
     print(f"Max time of life: {max(time_of_lifes):2f}s")
-
-
-if __name__ == "__main__":
-    parser = ArgumentParser()
-    parser.add_argument("model", type=str)
-    parser.add_argument("--algo", "-a", type=str)
-    parser.add_argument("--debug", "-d", action="store_true")
-    args = parser.parse_args()
-
-    if len(args.model) == 0:
-        raise ValueError("Invalid model argument")
-
-    rclpy.init(args=["--ros-args", "-p", "use_sim_time:=true"])
-    main(args)

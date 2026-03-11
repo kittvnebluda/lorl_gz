@@ -1,12 +1,8 @@
-from argparse import ArgumentParser
-
-import rclpy
 from gymnasium.utils.env_checker import check_env
-
 from legged_rl_env.go2_env import Go2Env
 
 
-def main(args):
+def random_agent(args):
     env = Go2Env()
 
     obs, info = env.reset()
@@ -36,12 +32,3 @@ def main(args):
         pass
     finally:
         env.close()
-
-
-if __name__ == "__main__":
-    parser = ArgumentParser()
-    parser.add_argument("--debug", "-d", action="store_true")
-    args = parser.parse_args()
-
-    rclpy.init(args=["--ros-args", "-p", "use_sim_time:=true"])
-    main(args)
