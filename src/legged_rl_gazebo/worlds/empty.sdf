@@ -11,6 +11,7 @@
         <plugin
             name='gz::sim::systems::Physics'
             filename='gz-sim-physics-system'>
+            <engine>bullet-featherstone</engine>
         </plugin>
         <plugin
             name='gz::sim::systems::UserCommands'

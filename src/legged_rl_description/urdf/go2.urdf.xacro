@@ -3,6 +3,5 @@
     <xacro:include filename="$(find unitree_go2_description)/urdf/unitree_go2_robot.xacro" />
     <gazebo>
         <plugin name="legged_rl_gazebo::ResetSystem" filename="ResetSystem" />
-        <plugin name="legged_rl_gazebo::PosePublisherSystem" filename="PosePublisherSystem" />
     </gazebo>
 </robot>

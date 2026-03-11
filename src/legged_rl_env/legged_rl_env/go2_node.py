@@ -4,7 +4,6 @@ import rclpy.time
 from geometry_msgs.msg import (
     Point,
     Pose,
-    PoseStamped,
     PoseWithCovarianceStamped,
     Vector3,
 )
@@ -40,11 +39,13 @@ class Go2Node(Node):
         self.base_angular_vel = np.zeros(3, dtype=np.float32)
         self.base_position = np.zeros(3, dtype=np.float32)
         self.base_orientation = np.zeros(3, dtype=np.float32)
-        self.joint_positions = jpos_low
-        self.joint_velocities = -jvel_max
-        self.ref_z = np.float32(0)
+        self.joint_positions = jpos_low.copy()
+        self.joint_velocities = -jvel_max.copy()
+        self.ref_z = np.float32(0.24)
         self.real_position = np.zeros(3, dtype=np.float32)
         self.real_orientation = np.zeros(3, dtype=np.float32)
+        self.real_lin_vel = np.zeros(3, dtype=np.float32)
+        self.real_ang_vel = np.zeros(3, dtype=np.float32)
 
         # fmt: off
         self._minimal_covariance = [
@@ -77,8 +78,8 @@ class Go2Node(Node):
         self.ref_z_sub = self.create_subscription(
             Float32, "/ref_z", self.ref_z_callback, fast_qos
         )
-        self.real_pose_sub = self.create_subscription(
-            PoseStamped, "/real_pose", self.real_pose_callback, fast_qos
+        self.real_odometry_sub = self.create_subscription(
+            Odometry, "/real_odometry", self.real_odometry_callback, fast_qos
         )
 
         # Publishers
@@ -104,7 +105,7 @@ class Go2Node(Node):
         self.target_frame = "map"
 
         # Services
-        self.resetter = self.create_client(ResetRobot, "reset_robot")
+        self.resetter = self.create_client(ResetRobot, "go2_reset_robot")
         self.base_to_foot_ekf_pose_setter = self.create_client(
             SetPose, "/base_to_footprint_ekf/set_pose"
         )
@@ -165,9 +166,11 @@ class Go2Node(Node):
     # From /odom (odom -> base_footprint)
     def odom_callback(self, msg: Odometry):
         lv = msg.twist.twist.linear
+        av = msg.twist.twist.angular
 
         self.base_linear_vel[0] = lv.x
         self.base_linear_vel[1] = lv.y
+        self.base_angular_vel[2] = av.z
 
     # From /odom/local (base_footprint -> base_link)
     def odom_local_callback(self, msg: Odometry):
@@ -177,7 +180,6 @@ class Go2Node(Node):
         self.base_linear_vel[2] = lv.z
         self.base_angular_vel[0] = av.x
         self.base_angular_vel[1] = av.y
-        self.base_angular_vel[2] = av.z
 
     def joint_states_callback(self, msg: JointState):
         if len(msg.name) != len(msg.position) or len(msg.name) != len(msg.velocity):
@@ -195,14 +197,32 @@ class Go2Node(Node):
     def ref_z_callback(self, msg: Float32):
         self.ref_z = np.float32(msg.data)
 
-    def real_pose_callback(self, msg: PoseStamped):
-        p = msg.pose.position
-        r = msg.pose.orientation
+    def real_odometry_callback(self, msg: Odometry):
+        p = msg.pose.pose.position
+        r = msg.pose.pose.orientation
+        t = msg.twist.twist
         euler = euler_from_quaternion((r.x, r.y, r.z, r.w))
         self.real_position = np.array([p.x, p.y, p.z], dtype=np.float32)
         self.real_orientation = np.array(euler, dtype=np.float32)
+        self.real_lin_vel = np.array(
+            [t.linear.x, t.linear.y, t.linear.z], dtype=np.float32
+        )
+        self.real_ang_vel = np.array(
+            [t.angular.x, t.angular.y, t.angular.z], dtype=np.float32
+        )
 
-    def update_pose(self):
+        assert np.all(
+            np.isfinite(
+                (
+                    self.real_position,
+                    self.real_orientation,
+                    self.real_lin_vel,
+                    self.real_ang_vel,
+                )
+            )
+        )
+
+    def update_tf(self):
         try:
             t = self.tf_buffer.lookup_transform(
                 self.target_frame, self.source_frame, rclpy.time.Time()
@@ -261,7 +281,9 @@ class Go2Node(Node):
             f"base_orientation  : roll {self.base_orientation[0]:8.3f}   pitch {self.base_orientation[1]:8.3f} rad",
             f"real_orientation  : roll {self.real_orientation[0]:8.3f}   pitch {self.real_orientation[1]:8.3f} rad",
             f"base_linear_vel   : vx {self.base_linear_vel[0]:8.3f}  vy {self.base_linear_vel[1]:8.3f}  vz {self.base_linear_vel[2]:8.3f} m/s",
+            f"real_linear_vel   : vx {self.real_lin_vel[0]:8.3f}  vy {self.real_lin_vel[1]:8.3f}  vz {self.real_lin_vel[2]:8.3f} m/s",
             f"base_angular_vel  : wx {self.base_angular_vel[0]:8.3f}  wy {self.base_angular_vel[1]:8.3f}  wz {self.base_angular_vel[2]:8.3f} rad/s",
+            f"real_angular_vel  : wx {self.real_ang_vel[0]:8.3f}  wy {self.real_ang_vel[1]:8.3f}  wz {self.real_ang_vel[2]:8.3f} rad/s",
             f"ref_z             : {self.ref_z:8.3f} m",
             f"joint_positions   : {np.round(self.joint_positions, 3)}",
             f"joint_velocities  : {np.round(self.joint_velocities, 3)}",

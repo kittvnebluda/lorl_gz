@@ -37,28 +37,8 @@ target_link_libraries(ResetSystem
 )
 
 
-add_library(PosePublisherSystem
-  SHARED
-    src/PosePublisherSystem.cc
-)
-
-target_include_directories(PosePublisherSystem
-  PRIVATE
-    include
-)
-
-ament_target_dependencies(PosePublisherSystem
-  rclcpp
-  geometry_msgs
-)
-
-target_link_libraries(PosePublisherSystem
-  gz-sim${GZ_SIM_VER}::gz-sim${GZ_SIM_VER}
-)
-
-
 install(
-  TARGETS ResetSystem PosePublisherSystem
+  TARGETS ResetSystem
   DESTINATION lib/${PROJECT_NAME}
 )
 
