@@ -31,8 +31,6 @@ def generate_launch_description():
     ros_gz_sim_pkg_path = FindPackageShare("ros_gz_sim")
     unitree_go2_sim_pkg_path = FindPackageShare("unitree_go2_sim")
 
-    use_sim_time = True
-
     default_robot_description = PathJoinSubstitution(
         [legged_rl_description_pkg_path, "urdf", "go2.urdf.xacro"]
     )
@@ -55,7 +53,7 @@ def generate_launch_description():
         [legged_rl_bringup_pkg_path, "config", "go2_controllers.yaml"]
     )
     ros_gz_bridge_cfg = PathJoinSubstitution(
-        [legged_rl_bringup_pkg_path, "config", "ros_gz_bridge.yaml"]
+        [legged_rl_bringup_pkg_path, "config", "go2_bridge.yaml"]
     )
     robot_urdf = Command(
         [
@@ -126,7 +124,7 @@ def generate_launch_description():
     ]
 
     # Declare parameters
-    parameters = [SetParameter("use_sim_time", use_sim_time)]
+    parameters = [SetParameter("use_sim_time", True)]
 
     # Declare nodes
     robot_state_publisher_node = Node(
@@ -222,6 +220,26 @@ def generate_launch_description():
         config_file=ros_gz_bridge_cfg,
         log_level=LaunchConfiguration("log-level"),
     )
+    # fmt:off
+    gazebo_bridge_clock = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        parameters=[
+            {"bridge_names": ["clock_bridge", "real_odometry"]},
+            {"bridges.clock_bridge.ros_topic_name": "/clock"},
+            {"bridges.clock_bridge.gz_topic_name": "/clock"},
+            {"bridges.clock_bridge.ros_type_name": "rosgraph_msgs/msg/Clock"},
+            {"bridges.clock_bridge.gz_type_name": "gz.msgs.Clock"},
+            {"bridges.clock_bridge.direction": "GZ_TO_ROS"},
+            {"bridges.clock_bridge.qos_profile": "CLOCK"},
+            {"bridges.real_odometry.ros_topic_name": "/real_odometry"},
+            {"bridges.real_odometry.gz_topic_name": "/model/go2/odometry"},
+            {"bridges.real_odometry.ros_type_name": "nav_msgs/msg/Odometry"},
+            {"bridges.real_odometry.gz_type_name": "gz.msgs.Odometry"},
+            {"bridges.real_odometry.direction": "GZ_TO_ROS"},
+        ],
+    )
+    # fmt:on
     foot_contacts_node = Node(
         package="legged_rl_applications",
         executable="foot_contact_aggregator",
@@ -292,7 +310,6 @@ def generate_launch_description():
         name="map_to_odom_tf_node",
         executable="static_transform_publisher",
         output="log",
-        parameters=[{"use_sim_time": use_sim_time}],
         arguments=[
             "--x", "0",
             "--y", "0",
@@ -319,6 +336,7 @@ def generate_launch_description():
         robot_state_publisher_node,
         gazebo_sim_launch,
         gazebo_bridge,
+        gazebo_bridge_clock,
         gazebo_spawn_entity_node,
         delay_joint_state_broadcaster_spawner,
         delay_robot_controller_spawner,

@@ -8,7 +8,6 @@ find_package(ament_cmake REQUIRED)
 find_package(legged_rl_description REQUIRED)
 find_package(legged_rl_gazebo REQUIRED)
 
-# Install project launch files
 install(
   DIRECTORY launch rviz config
   DESTINATION share/${PROJECT_NAME}/

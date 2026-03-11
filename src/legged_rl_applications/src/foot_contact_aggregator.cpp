@@ -21,34 +21,29 @@ class FootContactAggregator : public rclcpp::Node
         auto qos = rclcpp::QoS(10).reliable();
 
         sub_lf_ = create_subscription<ros_gz_interfaces::msg::Contacts>(
-          "/lf_foot_contacts",
+          "lf_foot_contacts",
           qos,
-          std::bind(
-            &FootContactAggregator::callbackLF, this, std::placeholders::_1));
+          std::bind(&FootContactAggregator::callbackLF, this, std::placeholders::_1));
 
         sub_rf_ = create_subscription<ros_gz_interfaces::msg::Contacts>(
-          "/rf_foot_contacts",
+          "rf_foot_contacts",
           qos,
-          std::bind(
-            &FootContactAggregator::callbackRF, this, std::placeholders::_1));
+          std::bind(&FootContactAggregator::callbackRF, this, std::placeholders::_1));
 
         sub_lh_ = create_subscription<ros_gz_interfaces::msg::Contacts>(
-          "/lh_foot_contacts",
+          "lh_foot_contacts",
           qos,
-          std::bind(
-            &FootContactAggregator::callbackLH, this, std::placeholders::_1));
+          std::bind(&FootContactAggregator::callbackLH, this, std::placeholders::_1));
 
         sub_rh_ = create_subscription<ros_gz_interfaces::msg::Contacts>(
-          "/rh_foot_contacts",
+          "rh_foot_contacts",
           qos,
-          std::bind(
-            &FootContactAggregator::callbackRH, this, std::placeholders::_1));
+          std::bind(&FootContactAggregator::callbackRH, this, std::placeholders::_1));
 
-        pub_ = create_publisher<champ_msgs::msg::ContactsStamped>(
-          "/foot_contacts", qos);
+        pub_ = create_publisher<champ_msgs::msg::ContactsStamped>("foot_contacts", qos);
 
-        timer_ = create_wall_timer(
-          10ms, std::bind(&FootContactAggregator::publish, this)); // 100 Hz
+        timer_ =
+          create_wall_timer(10ms, std::bind(&FootContactAggregator::publish, this)); // 100 Hz
 
         timeout_ = 0.02;
         force_threshold_ = 0.01;
@@ -67,25 +62,28 @@ class FootContactAggregator : public rclcpp::Node
 
     bool has_contact(const ros_gz_interfaces::msg::Contacts::SharedPtr msg)
     {
-        if (msg->contacts.empty()) {
+        if (msg->contacts.empty())
+        {
             RCLCPP_INFO(this->get_logger(), "Contacts are empty");
             return false;
         }
-        if (msg->contacts.size() > 1) {
+        if (msg->contacts.size() > 1)
+        {
             RCLCPP_WARN(this->get_logger(), "More than one contact!");
         }
         ros_gz_interfaces::msg::Contact contact = msg->contacts.at(0);
 
-        if (contact.wrenches.size() > 1) {
+        if (contact.wrenches.size() > 1)
+        {
             RCLCPP_WARN(this->get_logger(), "More than one wrench!");
         }
         ros_gz_interfaces::msg::JointWrench wrench = contact.wrenches.at(0);
 
         double force_norm = norm(wrench.body_1_wrench.force);
-        if (force_norm < force_threshold_) {
-            RCLCPP_DEBUG(this->get_logger(),
-                         "Force %f below threshold for contact detection",
-                         force_norm);
+        if (force_norm < force_threshold_)
+        {
+            RCLCPP_DEBUG(
+              this->get_logger(), "Force %f below threshold for contact detection", force_norm);
             return false;
         }
         return true;
@@ -93,7 +91,8 @@ class FootContactAggregator : public rclcpp::Node
 
     void callbackLF(const ros_gz_interfaces::msg::Contacts::SharedPtr msg)
     {
-        if (has_contact(msg)) {
+        if (has_contact(msg))
+        {
             contacts_[0] = true;
             last_times_[0] = now();
         }
@@ -101,7 +100,8 @@ class FootContactAggregator : public rclcpp::Node
 
     void callbackRF(const ros_gz_interfaces::msg::Contacts::SharedPtr msg)
     {
-        if (has_contact(msg)) {
+        if (has_contact(msg))
+        {
             contacts_[1] = true;
             last_times_[1] = now();
         }
@@ -109,7 +109,8 @@ class FootContactAggregator : public rclcpp::Node
 
     void callbackLH(const ros_gz_interfaces::msg::Contacts::SharedPtr msg)
     {
-        if (has_contact(msg)) {
+        if (has_contact(msg))
+        {
             contacts_[2] = true;
             last_times_[2] = now();
         }
@@ -117,7 +118,8 @@ class FootContactAggregator : public rclcpp::Node
 
     void callbackRH(const ros_gz_interfaces::msg::Contacts::SharedPtr msg)
     {
-        if (has_contact(msg)) {
+        if (has_contact(msg))
+        {
             contacts_[3] = true;
             last_times_[3] = now();
         }
@@ -126,8 +128,10 @@ class FootContactAggregator : public rclcpp::Node
     void publish()
     {
         auto now_time = now();
-        for (size_t i = 0; i < 4; ++i) {
-            if ((now_time - last_times_[i]).seconds() > timeout_) {
+        for (size_t i = 0; i < 4; ++i)
+        {
+            if ((now_time - last_times_[i]).seconds() > timeout_)
+            {
                 contacts_[i] = false;
             }
         }
